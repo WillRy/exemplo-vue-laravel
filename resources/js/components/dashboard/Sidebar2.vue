@@ -4,7 +4,13 @@
             <i class='bx bxl-c-plus-plus icon'></i>
             <div class="logo_name">ACL</div>
             <!--            <i class='bx bx-menu' id="btn" @click="toggle"></i>-->
-            <img src="/img/menu.svg" id="btn" alt="" @click="toggle">
+
+            <div class="btn-menu">
+                <img src="/img/menu-w.svg" class="white" alt="" @click="toggle" v-if="!open">
+                <img src="/img/menu-b.svg" class="black" alt="" @click="toggle" v-if="!open">
+                <img src="/img/arrow-left-w.svg" class="btn-menu white" alt="" @click="toggle" v-if="open">
+                <img src="/img/arrow-left-b.svg" class="btn-menu black" alt="" @click="toggle" v-if="open">
+            </div>
         </div>
         <ul class="nav-list">
             <li>
@@ -90,8 +96,7 @@ export default {
     opacity: 1;
 }
 
-.sidebar .logo-details #btn {
-    position: absolute;
+.sidebar .logo-details .btn-menu {
     position: absolute;
     top: 50%;
     right: 50%;
@@ -100,11 +105,26 @@ export default {
     text-align: center;
     cursor: pointer;
     transition: all 0.5s ease;
-    width: 36px;
-
+    width: 45px;
+    border-radius: 12px;
+    height: 45px;
+    padding: 4px;
 }
 
-.sidebar.open .logo-details #btn {
+.btn-menu:hover {
+    background: #fff;
+}
+
+.btn-menu:hover .white {
+    display: none;
+}
+
+.btn-menu:hover .black {
+    display: block;
+}
+
+
+.sidebar.open .logo-details .btn-menu {
     text-align: right;
     top: 50%;
     right: 0;
