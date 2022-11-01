@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@import "~vue-toast-notification/dist/theme-sugar.css";
+@import "~floating-vue/dist/style.css";
+
+@import "./normalize.css";
+@import "./grid.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited, a:hover {
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+:root {
+    --cor-principal: #11101D;
+    --cor-secundaria: rgb(148 163 184);
+
+    --cor-label: #11101D;
+
+    --cor-placeholder: #BBBFC4;
+    --cor-borda-principal: #BBBFC466;
+
+    --radius-principal: 8px;
+
+    --cor-danger: #D98555;
+    --cor-input-error: #D98555;
+    --cor-warning: #f2b80c;
+
+    --texto-xx: 9px;
+    --texto-x: 10px;
+    --texto-sm: 13px;
+    --texto-md: 16px;
+    --texto-lg: 18px;
+    --texto-xl: 24px;
+    --texto-xxl: 32x;
+
+    --z-index-1: 1;
+    --z-index-2: 2;
+    --z-index-3: 3;
+}
+
+
+.titulo {
+    font-size: var(--texto-xl);
+    font-weight: bold;
+    color: var(--cor-principal);
+    margin-bottom: 4px;
+}
+
+.subtitulo {
+    font-size: var(--texto-lg);
+    font-weight: bold;
+    color: var(--cor-secundaria);
+    margin-bottom: 8px;
+}
+
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    min-height: 42px;
+    border: none;
+    font-weight: normal;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: var(--radius-principal);
+    box-shadow: 0px 2px 4px #00000029;
+}
+
+.btn .icon {
+    margin-right: 8px;
+    width: 22px;
+    height: 22px;
+}
+
+.btn:disabled, button:disabled, .disabled-btn {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn:hover {
+    opacity: 0.6;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.btn-min {
+    min-width: 156px;
+}
+
+.btn-primary {
+    background-color: var(--cor-principal);
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
+}
+
+.btn-danger {
+    background-color: var(--cor-danger);
+    color: #fff;
+}
+
+
+
+.btn-nobg-primary {
+    background: none;
+    color: var(--cor-principal);
+    box-shadow: none;
+}
+
+.btn-nobg-danger {
+    background: none;
+    color: var(--cor-danger);
+    box-shadow: none;
+}

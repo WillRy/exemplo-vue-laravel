@@ -30,6 +30,7 @@ export default defineConfig({
         }),
     ],
     resolve: {
+        extensions: ['.js', '.json', '.vue'],
         alias: [
             {
                 find: /~(.+)/,
