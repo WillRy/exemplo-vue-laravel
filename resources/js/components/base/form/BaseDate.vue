@@ -77,13 +77,24 @@ export default {
             },
             get() {
                 let valor = this.modelValue || this.formatado;
-                if(valor) {
+                if (valor) {
                     return moment(valor).tz(this.timezone).toDate();
                 }
                 return null;
 
             }
         },
+    },
+    watch: {
+        data(valor) {
+            let string = null;
+            if (valor) {
+                string = moment(valor).tz(this.timezone).format("Y-MM-DD");
+            } else {
+                string = null;
+            }
+            this.$emit('update:formatado', string);
+        }
     },
     methods: {
         emitirData() {
