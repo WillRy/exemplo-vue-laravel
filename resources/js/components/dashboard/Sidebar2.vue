@@ -22,6 +22,14 @@
                 <span class="tooltip">Dashboard</span>
             </li>
             <li>
+                <Link href="/empresas">
+                    <img src="/img/empresa-b.svg" alt="" class="black">
+                    <img src="/img/empresa-w.svg" alt="" class="white">
+                    <span class="links_name">Empresas</span>
+                </Link>
+                <span class="tooltip">Empresas</span>
+            </li>
+            <li>
                 <Link href="/usuarios">
                     <img src="/img/usuarios-b.svg" alt="" class="black">
                     <img src="/img/usuarios-w.svg" alt="" class="white">

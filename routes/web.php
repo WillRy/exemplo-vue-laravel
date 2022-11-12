@@ -38,4 +38,14 @@ Route::group(['middleware' => 'guest'], function () {
 Route::group(['middleware' => 'auth:usuarios'], function () {
 
     Route::get("/", [DashboardController::class, 'index'])->name("dashboard");
+
+    Route::group(['prefix' => 'empresas'], function () {
+        Route::get("/", [\App\Http\Controllers\EmpresaController::class, 'index'])->name("empresas");
+        Route::get("/listar", [\App\Http\Controllers\EmpresaController::class, 'listar'])->name("empresas.listar");
+        Route::post("/cadastrar", [\App\Http\Controllers\EmpresaController::class, 'cadastrar'])->name("empresas.cadastrar");
+        Route::post("/editar/{id}", [\App\Http\Controllers\EmpresaController::class, 'editar'])->name("empresas.editar");
+        Route::post("/excluir/{id}", [\App\Http\Controllers\EmpresaController::class, 'excluir'])->name("empresas.excluir");
+        Route::get("/detalhes/{id}", [\App\Http\Controllers\EmpresaController::class, 'detalhes'])->name("empresas.detalhes");
+    });
+
 });

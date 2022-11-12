@@ -23,8 +23,10 @@
 export default {
     name: "DropdownAcoes",
     props: {
-        type: Boolean,
-        default: false
+        fundoClaro: {
+            type: Boolean,
+            default: false
+        }
     },
     data() {
         return {

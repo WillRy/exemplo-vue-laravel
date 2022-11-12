@@ -11,6 +11,8 @@ import outside from './directives/click-outside';
 
 import Loader from "./components/base/Loader";
 
+import {filters, EventBus} from './plugins';
+
 createInertiaApp({
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
     setup({el, App, props, plugin}) {
@@ -19,6 +21,8 @@ createInertiaApp({
             .use(VueToast)
             .use(FloatingVue)
             .use(outside)
+            .use(filters)
+            .use(EventBus)
             .component('Loader', Loader)
             .mount(el);
     },

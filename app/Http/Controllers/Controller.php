@@ -11,10 +11,25 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function successInertia($message, $dados = [], $routeName = null, $routeParams = [])
+    public function errorAPI($message, $errors = [], $errorCode = null)
     {
-        if ($routeName) return redirect()->route($routeName, $routeParams)->with("success", $message)->with('dados', $dados);
-        else return redirect()->back()->with("success", $message)->with('dados', $dados);
+        return response()->json([
+            'success' => false,
+            'message' => $message,
+            'errors' => $errors,
+            'error_code' => $errorCode
+        ], 200);
+    }
+
+    public function successAPI($data, $message = null)
+    {
+        return response()->json([
+            'success' => true,
+            'message' => $message,
+            'errors' => null,
+            'error_code' => null,
+            "data" => $data,
+        ], 200);
     }
 
     public function errorInertia($message, $dados = [], $routeName = null, $routeParams = [])
@@ -31,15 +46,9 @@ class Controller extends BaseController
         return redirect()->back()->with("error", $message)->with('dados', $dados);
     }
 
-    public function responseJSON($data = [], $statusCode = 200)
+    public function successInertia($message, $dados = [], $routeName = null, $routeParams = [])
     {
-        return response()->json([
-            "data" => $data
-        ], $statusCode);
-    }
-
-    public function errorJSON($message, $statusCode = 500, $errorCode = 'ERROR', $errors = [])
-    {
-        return response()->json(["error" => $message, 'code' => $errorCode, 'errors' => $errors], $statusCode);
+        if ($routeName) return redirect()->route($routeName, $routeParams)->with("success", $message)->with('dados', $dados);
+        else return redirect()->back()->with("success", $message)->with('dados', $dados);
     }
 }

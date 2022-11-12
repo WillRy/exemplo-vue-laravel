@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->string("nome", 255);
             $table->string("email", 255)->unique();
+            $table->boolean("principal")->default(false);
 
             $table->timestamps();
         });

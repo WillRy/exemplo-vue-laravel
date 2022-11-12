@@ -4,7 +4,9 @@
 @import "~floating-vue/dist/style.css";
 
 @import "./normalize.css";
+@import "./tabela.css";
 @import "./grid.css";
+
 
 * {
     margin: 0;
@@ -119,8 +121,8 @@ img {
 }
 
 .btn-secondary {
-    background-color: var(--cor-secundaria);
-    color: var(--cor-principal);
+    background-color: rgb(123 138 161);
+    color: #fff;
 }
 
 .btn-danger {

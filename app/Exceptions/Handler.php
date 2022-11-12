@@ -46,5 +46,18 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+
+        $this->renderable(function (\Illuminate\Validation\ValidationException $e, \Illuminate\Http\Request $request) {
+            if ($request->expectsJson()) {
+                $error = str_replace(' (and 1 more error)', '', $e->getMessage());
+                return response()->json([
+                    'success' => false,
+                    'error' => $error,
+                    'errors' => $e->validator->errors()
+                ], 200);
+            }
+        });
+
+
     }
 }

@@ -3,9 +3,7 @@
         <Header/>
         <Sidebar2/>
         <div class="home-section">
-            <div class="container-fluid">
-                <slot></slot>
-            </div>
+            <slot></slot>
         </div>
     </div>
 </template>
