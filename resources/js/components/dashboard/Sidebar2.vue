@@ -2,7 +2,7 @@
     <div class="sidebar" :class="{open: open}">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus icon'></i>
-            <div class="logo_name">ACL</div>
+            <div class="logo_name">CRM</div>
             <!--            <i class='bx bx-menu' id="btn" @click="toggle"></i>-->
 
             <div class="btn-menu">

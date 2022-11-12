@@ -43,4 +43,16 @@ export default defineConfig({
             },
         ],
     },
+    build: {
+        sourcemap: false,
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    moment: ['moment', 'moment-timezone'],
+                    vendor: ['floating-vue', 'v-calendar'],
+                    // ...renderChunks(dependencies),
+                },
+            },
+        },
+    },
 });
