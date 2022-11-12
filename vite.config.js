@@ -48,7 +48,7 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks: {
-                    moment: ['moment', 'moment-timezone'],
+                    datefns: ['date-fns'],
                     vendor: ['floating-vue', 'v-calendar'],
                     // ...renderChunks(dependencies),
                 },

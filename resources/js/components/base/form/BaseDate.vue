@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import moment from 'moment-timezone';
+import {parseJSON, format} from 'date-fns'
 
 export default {
     name: "BaseDate",
@@ -68,8 +68,8 @@ export default {
         data: {
             set(valor) {
                 if (valor) {
-                    let objeto = moment(valor).tz(this.timezone);
-                    let string = moment(valor).tz(this.timezone).format("Y-MM-DD");
+                    let objeto = parseJSON(valor);
+                    let string = format(valor, 'yyyy-MM-dd');
                     this.$emit('update:modelValue', objeto);
                     this.$emit('update:formatado', string);
                 }
@@ -78,7 +78,7 @@ export default {
             get() {
                 let valor = this.modelValue || this.formatado;
                 if (valor) {
-                    return moment(valor).tz(this.timezone).toDate();
+                    return parseJSON(valor)
                 }
                 return null;
 
@@ -89,7 +89,7 @@ export default {
         data(valor) {
             let string = null;
             if (valor) {
-                string = moment(valor).tz(this.timezone).format("Y-MM-DD");
+                string = format(valor, 'yyyy-MM-dd');
             } else {
                 string = null;
             }
@@ -142,7 +142,7 @@ export default {
 }
 
 
-/deep/ .errorMessage > div {
+.errorMessage > :deep(div) {
     margin: 3px 0;
     color: var(--cor-input-error);
 }

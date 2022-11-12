@@ -88,7 +88,7 @@ export default {
     },
 }
 </script>
-<style>
+<style scoped>
 
 
 .base-modal-container {
@@ -165,7 +165,7 @@ export default {
     position: relative;
 }
 
-.base-modal-title h3 {
+.base-modal-title :deep(h3) {
     margin: 0;
     text-align: center;
     color: var(--cor-principal);
@@ -216,11 +216,11 @@ export default {
 }
 
 .modal-enter-active .base-modal {
-    animation: fadeInDown 0.3s;
+    animation: modalEffect 0.3s;
 }
 
 
-@keyframes fadeInDown {
+@keyframes modalEffect {
     0% {
         opacity: 0;
         transform: translateZ(-20px)

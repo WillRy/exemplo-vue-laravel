@@ -1,16 +1,17 @@
-import moment from 'moment-timezone';
+import {parseJSON, format} from 'date-fns'
 import mitt from 'mitt'
 
 let filters = {
     install: (app, options) => {
         app.config.globalProperties.$filters = {
+
             data(value) {
                 if (value === '0000-00-00 00:00:00') return ''
-                return value ? moment(value).format("DD/MM/Y") : '';
+                return value ? format(value, "dd/MM/yyyy") : '';
             },
             dataHora(value) {
                 if (value === '0000-00-00 00:00:00') return ''
-                return value ? moment(value).format("DD/MM/Y HH:mm:ss") : '';
+                return value ? format(value, "dd/MM/yyyy HH:MM:ss") : '';
             },
             dinheiro(valor) {
                 return (new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(valor));

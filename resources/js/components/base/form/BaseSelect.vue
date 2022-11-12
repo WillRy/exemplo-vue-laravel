@@ -118,7 +118,7 @@ label {
     display: block;
 }
 
-/deep/ .errorMessage > div {
+.errorMessage > :deep(div) {
     margin: 3px 0;
     color: var(--cor-input-error);
 }

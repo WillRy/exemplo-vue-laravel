@@ -38,7 +38,8 @@ img {
 }
 
 :root {
-    --cor-principal: #11101D;
+    /*--cor-principal: #11101D;*/
+    --cor-principal: #3c3956;
     --cor-secundaria: rgb(148 163 184);
 
     --cor-label: #11101D;

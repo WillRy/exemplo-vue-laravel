@@ -39,10 +39,10 @@ class UsuarioController extends Controller
             "empresa_id" => "required|exists:empresas,id",
             "admissao" => "nullable|date|before_or_equal:today",
         ], [
-            'empresa_id.required' => 'O campo Empresa é requerido',
-            'empresa_id.exists' => 'O campo Empresa é requerido',
-            'admissao.date' => 'O campo Admissão deve ser uma data',
-            'admissao.before_or_equal' => 'O campo Admissão deve ser menor ou igual a hoje',
+            'empresa_id.required' => 'O campo Empresa é obrigatório.',
+            'empresa_id.exists' => 'O campo Empresa é obrigatório.',
+            'admissao.date' => 'O campo Admissão deve ser uma data.',
+            'admissao.before_or_equal' => 'O campo Admissão deve ser menor ou igual a hoje.',
         ]);
 
         try {
@@ -61,8 +61,8 @@ class UsuarioController extends Controller
             "senha" => "nullable|min:6|max:12",
             "admissao" => "nullable|date|before_or_equal:today",
         ], [
-            'admissao.date' => 'O campo Admissão deve ser uma data',
-            'admissao.before_or_equal' => 'O campo Admissão deve ser menor ou igual a hoje',
+            'admissao.date' => 'O campo Admissão deve ser uma data.',
+            'admissao.before_or_equal' => 'O campo Admissão deve ser menor ou igual a hoje.',
         ]);
 
         try {

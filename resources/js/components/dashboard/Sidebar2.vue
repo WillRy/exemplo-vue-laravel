@@ -69,7 +69,7 @@ export default {
     top: 0;
     height: 100%;
     width: 64px;
-    background: #11101D;
+    background: var(--cor-principal);
     padding: 0px 8px;
     z-index: 99;
     transition: all 0.5s ease;
@@ -163,7 +163,7 @@ export default {
     position: absolute;
     top: -20px;
     left: calc(100% + 15px);
-    z-index: 3;
+    z-index: var(--z-index-1);
     background: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     padding: 6px 12px;
@@ -217,7 +217,7 @@ export default {
     /*justify-content: center;*/
     text-decoration: none;
     transition: all 0.5s ease;
-    background: #11101D;
+    background: var(--cor-principal);
     gap: 10px;
 }
 
@@ -271,7 +271,7 @@ img.black {
 .sidebar li a:hover .links_name,
 .sidebar li a:hover i {
     transition: all 0.5s ease;
-    color: #11101D;
+    color: var(--cor-principal);
 }
 
 .sidebar li i {

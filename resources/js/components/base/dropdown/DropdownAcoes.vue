@@ -54,8 +54,8 @@ img {
     flex-direction: column;
 }
 
-.dropdown-acoes::v-deep button,
-.dropdown-acoes::v-deep a {
+.dropdown-acoes :deep(button),
+.dropdown-acoes :deep(a) {
     display: flex;
     align-items: center;
     background: none;
@@ -66,19 +66,19 @@ img {
     color: #444444;
 }
 
-.dropdown-acoes::v-deep button:hover,
-.dropdown-acoes::v-deep a:hover {
+.dropdown-acoes :deep(button:hover),
+.dropdown-acoes :deep(a:hover) {
     background: #f2f2f2;
 }
 
 
-.dropdown-acoes::v-deep button:disabled,
-.dropdown-acoes::v-deep a:disabled {
+.dropdown-acoes :deep(button:disabled),
+.dropdown-acoes :deep(a:disabled) {
     opacity: 0.6 !important;
     cursor: not-allowed !important;
 }
 
-.dropdown-acoes::v-deep img{
+.dropdown-acoes :deep(img){
     height: 24px;
     width: 24px;
     margin-right: 8px;
