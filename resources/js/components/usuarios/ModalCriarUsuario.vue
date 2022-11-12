@@ -58,6 +58,16 @@
                             type="password"
                         />
                     </div>
+                    <div class="col-md-12">
+                        <BaseDate
+                            v-model="form.admissao"
+                            :class="{ error: form.errors.admissao }"
+                            :error="form.errors.admissao"
+                            label="Data de Admissao"
+                            placeholder="Admissao"
+
+                        />
+                    </div>
                 </div>
             </form>
         </template>
@@ -76,9 +86,10 @@
 <script>
 import {useForm} from "@inertiajs/inertia-vue3";
 import BaseInput from "../base/form/BaseInput";
-import BaseModal from "../base/model/BaseModel";
+import BaseModal from "../base/modal/BaseModel";
 import BaseSelectAjax from "../base/form/BaseSelectAjax";
 import axios from "axios";
+import BaseDate from "../base/form/BaseDate";
 
 
 export default {
@@ -89,10 +100,11 @@ export default {
             email: '',
             senha: '',
             empresa_id: null,
+            admissao: null,
         });
         return {form};
     },
-    components: {BaseSelectAjax, BaseModal, BaseInput},
+    components: {BaseDate, BaseSelectAjax, BaseModal, BaseInput},
     data() {
         return {
             config: false,

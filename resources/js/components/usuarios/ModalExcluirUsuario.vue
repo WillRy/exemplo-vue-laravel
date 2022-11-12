@@ -25,7 +25,7 @@
 <script>
 import {useForm} from "@inertiajs/inertia-vue3";
 import BaseInput from "../base/form/BaseInput";
-import BaseModal from "../base/model/BaseModel";
+import BaseModal from "../base/modal/BaseModel";
 
 
 export default {

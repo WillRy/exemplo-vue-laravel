@@ -57,6 +57,10 @@
                             texto: 'email'
                         },
                         {
+                            nome: 'admissao',
+                            texto: 'Data de Admissão'
+                        },
+                        {
                             nome: 'empresa.nome',
                             texto: 'Empresa'
                         },
@@ -72,6 +76,7 @@
                             <TabelaColuna>{{ dado.id }}</TabelaColuna>
                             <TabelaColuna>{{ dado.nome }}</TabelaColuna>
                             <TabelaColuna>{{ dado.email }}</TabelaColuna>
+                            <TabelaColuna>{{ $filters.data(dado.admissao) }}</TabelaColuna>
                             <TabelaColuna>{{ dado.empresa.nome }}</TabelaColuna>
                             <th class="coluna-acoes">
                                 <DropdownAcoes :fundoClaro="true">
@@ -117,8 +122,8 @@ import BaseInput from "../../components/base/form/BaseInput";
 import {useForm} from "@inertiajs/inertia-vue3";
 import ButtonPrimary from "../../components/base/btn/ButtonPrimary";
 import DropdownAcoes from "../../components/base/dropdown/DropdownAcoes";
-import ModalCriarUsuario from "../../components/usuarios/ModelCriarUsuario";
-import ModalEditarUsuario from "../../components/usuarios/ModelEditarUsuario";
+import ModalCriarUsuario from "../../components/usuarios/ModalCriarUsuario";
+import ModalEditarUsuario from "../../components/usuarios/ModalEditarUsuario";
 import ModalExcluirUsuario from "../../components/usuarios/ModalExcluirUsuario";
 import BaseSelectAjax from "../../components/base/form/BaseSelectAjax";
 

@@ -5,12 +5,25 @@
         @onOpen="carregarFormulario"
     >
         <template #title>
-            <h3>Edição de empresa</h3>
+            <h3>Edição de usuario</h3>
         </template>
         <template #body>
             <Loader width="60px" height="60px" :cor-principal="true" v-if="loadingDados"></Loader>
             <form @submit.prevent="submit" v-else>
                 <div class="row">
+                    <div class="col-md-12">
+                        <BaseSelect
+                            label="Empresa *"
+                            placeholder="Pesquise as empresas"
+                            v-model="form.empresa_id"
+                            track-by="id"
+                            text-by="nome"
+                            :options="empresas"
+                            :disabled="true"
+                        >
+                        </BaseSelect>
+                    </div>
+
                     <div class="col-md-12">
                         <BaseInput
                             v-model="form.nome"
@@ -28,6 +41,26 @@
                             label="E-mail *"
                             placeholder="E-mail"
                             type="email"
+                        />
+                    </div>
+                    <div class="col-md-12">
+                        <BaseInput
+                            v-model="form.senha"
+                            :class="{ error: form.errors.senha }"
+                            :error="form.errors.senha"
+                            label="Senha"
+                            placeholder="Senha"
+                            type="password"
+                        />
+                    </div>
+                    <div class="col-md-12">
+                        <BaseDate
+                            v-model="form.admissao"
+                            :class="{ error: form.errors.admissao }"
+                            :error="form.errors.admissao"
+                            label="Data de Admissao"
+                            placeholder="Admissao"
+
                         />
                     </div>
                 </div>
@@ -48,33 +81,42 @@
 <script>
 import {useForm} from "@inertiajs/inertia-vue3";
 import BaseInput from "../base/form/BaseInput";
-import BaseModal from "../base/model/BaseModel";
+import BaseModal from "../base/modal/BaseModel";
 import Loader from "../base/Loader";
 import axios from "axios";
+import BaseSelectAjax from "../base/form/BaseSelectAjax";
+import BaseSelect from "../base/form/BaseSelect";
+import BaseDate from "../base/form/BaseDate";
 
 
 export default {
-    name: "ModalEditarEmpresa",
+    name: "ModalEditarUsuario",
     setup() {
         const form = useForm({
             nome: '',
             email: '',
+            senha: '',
+            empresa_id: '',
+            admissao: '',
         });
         return {form};
     },
-    components: {Loader, BaseModal, BaseInput},
+    components: {BaseDate, BaseSelect, BaseSelectAjax, Loader, BaseModal, BaseInput},
     data() {
         return {
             config: false,
             loading: false,
-            loadingDados: false
+            loadingDados: false,
+            empresas: []
         }
     },
     methods: {
         carregarFormulario() {
             this.loadingDados = true;
-            axios.get(`/empresas/detalhes/${this.config.id}`).then((r) => {
+            axios.get(`/usuarios/detalhes/${this.config.id}`).then((r) => {
                 Object.assign(this.form, r.data.data);
+                this.form.empresa_id = r.data.data.empresa;
+                this.empresas.push(this.form.empresa_id);
             }).catch((e) => {
                 this.$toast.open({
                     type: 'error',
@@ -94,10 +136,10 @@ export default {
         async submit() {
             this.loading = true;
             this.form
-                .post(`/empresas/editar/${this.config.id}`, {
+                .post(`/usuarios/editar/${this.config.id}`, {
                     onSuccess: () => {
                         this.fecharModal();
-                        this.$eventBus.$emit("ModalEditarEmpresa:reload");
+                        this.$eventBus.$emit("ModalEditarUsuario:reload");
                         this.loading = false;
                     },
                     onFinish: () => {
@@ -107,10 +149,10 @@ export default {
         }
     },
     beforeUnmount() {
-        this.$eventBus.$off("ModalEditarEmpresa:config");
+        this.$eventBus.$off("ModalEditarUsuario:config");
     },
     created() {
-        this.$eventBus.$on("ModalEditarEmpresa:config", (evento) => {
+        this.$eventBus.$on("ModalEditarUsuario:config", (evento) => {
             this.config = evento;
         });
     },

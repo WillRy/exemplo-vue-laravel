@@ -5,37 +5,15 @@
         @onOpen="carregarFormulario"
     >
         <template #title>
-            <h3>Criação de empresa</h3>
+            <h3>Exclusão de empresa</h3>
         </template>
         <template #body>
-            <form @submit.prevent="submit">
-                <div class="row">
-                    <div class="col-md-12">
-                        <BaseInput
-                            v-model="form.nome"
-                            :class="{error: form.errors.nome}"
-                            :error="form.errors.nome"
-                            label="Nome *"
-                            placeholder="Nome"
-                        />
-                    </div>
-                    <div class="col-md-12">
-                        <BaseInput
-                            v-model="form.email"
-                            :class="{ error: form.errors.email }"
-                            :error="form.errors.email"
-                            label="E-mail *"
-                            placeholder="E-mail"
-                            type="email"
-                        />
-                    </div>
-                </div>
-            </form>
+            <p>Deseja excluir esta empresa?</p>
         </template>
         <template #footer>
             <button class="btn btn-full btn-primary" @click.prevent="submit">
                 <Loader v-if="loading" height="20px" width="20px"/>
-                Cadastrar
+                Excluir
             </button>
             <button class="btn btn-full btn-secondary" @click.prevent="fecharModal">
                 Cancelar
@@ -47,11 +25,11 @@
 <script>
 import {useForm} from "@inertiajs/inertia-vue3";
 import BaseInput from "../base/form/BaseInput";
-import BaseModal from "../base/model/BaseModel";
+import BaseModal from "../base/modal/BaseModel";
 
 
 export default {
-    name: "ModalCriarEmpresa",
+    name: "ModalExcluirEmpresa",
     setup() {
         const form = useForm({
             nome: '',
@@ -79,10 +57,10 @@ export default {
         async submit() {
             this.loading = true;
             this.form
-                .post(`/empresas/cadastrar`, {
+                .post(`/empresas/excluir/${this.config.id}`, {
                     onSuccess: () => {
                         this.fecharModal();
-                        this.$eventBus.$emit("ModalCriarEmpresa:reload");
+                        this.$eventBus.$emit("ModalExcluirEmpresa:reload");
                         this.loading = false;
                     },
                     onFinish: () => {
@@ -92,10 +70,10 @@ export default {
         }
     },
     beforeUnmount() {
-        this.$eventBus.$off("ModalCriarEmpresa:config");
+        this.$eventBus.$off("ModalExcluirEmpresa:config");
     },
     created() {
-        this.$eventBus.$on("ModalCriarEmpresa:config", (evento) => {
+        this.$eventBus.$on("ModalExcluirEmpresa:config", (evento) => {
             this.config = evento;
         });
     },

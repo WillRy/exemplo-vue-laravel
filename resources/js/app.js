@@ -6,6 +6,7 @@ import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers';
 
 import VueToast from 'vue-toast-notification';
 import FloatingVue from 'floating-vue'
+import {DatePicker} from 'v-calendar';
 
 import outside from './directives/click-outside';
 
@@ -23,6 +24,7 @@ createInertiaApp({
             .use(outside)
             .use(filters)
             .use(EventBus)
+            .component('DatePicker', DatePicker)
             .component('Loader', Loader)
             .mount(el);
     },

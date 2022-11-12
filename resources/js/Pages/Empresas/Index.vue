@@ -102,9 +102,9 @@ import BaseInput from "../../components/base/form/BaseInput";
 import {useForm} from "@inertiajs/inertia-vue3";
 import ButtonPrimary from "../../components/base/btn/ButtonPrimary";
 import DropdownAcoes from "../../components/base/dropdown/DropdownAcoes";
-import ModalCriarEmpresa from "../../components/empresas/ModelCriarEmpresa";
-import ModalEditarEmpresa from "../../components/empresas/ModelEditarEmpresa";
-import ModalExcluirEmpresa from "../../components/empresas/ModelExcluirEmpresa";
+import ModalCriarEmpresa from "../../components/empresas/ModalCriarEmpresa";
+import ModalEditarEmpresa from "../../components/empresas/ModalEditarEmpresa";
+import ModalExcluirEmpresa from "../../components/empresas/ModalExcluirEmpresa";
 
 export default {
     name: "Index",

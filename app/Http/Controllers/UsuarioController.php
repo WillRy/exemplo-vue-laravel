@@ -37,9 +37,11 @@ class UsuarioController extends Controller
             "email" => "required|email|max:255|unique:usuarios,email",
             "senha" => "required|min:6|max:12",
             "empresa_id" => "required|exists:empresas,id",
+            "admissao" => "nullable|date",
         ], [
             'empresa_id.required' => 'O campo Empresa é requerido',
             'empresa_id.exists' => 'O campo Empresa é requerido',
+            'admissao.date' => 'O campo Admissão deve ser uma data',
         ]);
 
         try {
@@ -55,7 +57,10 @@ class UsuarioController extends Controller
         $dados = $request->validate([
             "nome" => "required|max:255",
             "email" => "required|email|max:255|unique:usuarios,email,$id",
-            "senha" => "nullable|min:6|max:12"
+            "senha" => "nullable|min:6|max:12",
+            "admissao" => "nullable|date",
+        ], [
+            'admissao.date' => 'O campo Admissão deve ser uma data',
         ]);
 
         try {

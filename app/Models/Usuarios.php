@@ -29,6 +29,7 @@ class Usuarios extends Authenticatable
         'senha',
         'hash_rec_senha',
         'empresa_id',
+        'admissao'
     ];
 
     /**
@@ -75,6 +76,8 @@ class Usuarios extends Authenticatable
     public function criarUsuario(array $dados): Usuarios
     {
         $dados["senha"] = Hash::make($dados['senha']);
+
+        if (!empty($dados['admissao'])) $dados['admissao'] = date('Y-m-d H:i:s', strtotime($dados['admissao']));
         return Usuarios::create($dados);
     }
 
@@ -87,6 +90,8 @@ class Usuarios extends Authenticatable
         } else {
             unset($dados['senha']);
         }
+
+        if (!empty($dados['admissao'])) $dados['admissao'] = date('Y-m-d H:i:s', strtotime($dados['admissao']));
 
         $usuario->fill($dados);
         $usuario->save($dados);
