@@ -18,13 +18,14 @@
                 v-model="form.senha"
                 :error="form.errors.senha"
                 :class="{error: form.errors.senha}"
+                type="password"
             />
 
             <ButtonPrimary :full="true" :disabled="loading" type="submit">
                 <Loader width="20px" height="20px" v-if="loading"/>
                 Entrar
             </ButtonPrimary>
-            <LinkPrimary :full="true" href="/cadastro">Cadastrar-se</LinkPrimary>
+<!--            <LinkPrimary :full="true" href="/cadastro">Cadastrar-se</LinkPrimary>-->
         </form>
     </div>
 </template>
