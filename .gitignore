@@ -20,6 +20,9 @@ yarn-error.log
 
 ### CUSTOMIZADO ###
 
+#tinker
+.config
+
 #IDEs / Text editors
 .idea
 .vscode

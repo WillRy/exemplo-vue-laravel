@@ -39,6 +39,11 @@ Route::group(['middleware' => 'auth:usuarios'], function () {
 
     Route::get("/", [DashboardController::class, 'index'])->name("dashboard");
 
+    Route::group(['prefix' => 'dashboard'], function () {
+        Route::get("/indicativos", [\App\Http\Controllers\DashboardController::class, 'indicativos'])->name("indicativos");
+
+    });
+
     Route::group(['prefix' => 'empresas'], function () {
         Route::get("/", [\App\Http\Controllers\EmpresaController::class, 'index'])->name("empresas");
         Route::get("/listar", [\App\Http\Controllers\EmpresaController::class, 'listar'])->name("empresas.listar");
@@ -48,4 +53,12 @@ Route::group(['middleware' => 'auth:usuarios'], function () {
         Route::get("/detalhes/{id}", [\App\Http\Controllers\EmpresaController::class, 'detalhes'])->name("empresas.detalhes");
     });
 
+    Route::group(['prefix' => 'usuarios'], function () {
+        Route::get("/", [\App\Http\Controllers\UsuarioController::class, 'index'])->name("usuarios");
+        Route::get("/listar", [\App\Http\Controllers\UsuarioController::class, 'listar'])->name("usuarios.listar");
+        Route::post("/cadastrar", [\App\Http\Controllers\UsuarioController::class, 'cadastrar'])->name("usuarios.cadastrar");
+        Route::post("/editar/{id}", [\App\Http\Controllers\UsuarioController::class, 'editar'])->name("usuarios.editar");
+        Route::post("/excluir/{id}", [\App\Http\Controllers\UsuarioController::class, 'excluir'])->name("usuarios.excluir");
+        Route::get("/detalhes/{id}", [\App\Http\Controllers\UsuarioController::class, 'detalhes'])->name("usuarios.detalhes");
+    });
 });

@@ -6,6 +6,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 
 class Usuarios extends Authenticatable
@@ -46,6 +49,47 @@ class Usuarios extends Authenticatable
 
     public function empresa()
     {
-        return $this->belongsTo(Empresa::class, 'empresa_id','id');
+        return $this->belongsTo(Empresa::class, 'empresa_id', 'id');
+    }
+
+    public function buscarUsuarios(
+        ?string $pesquisa = "",
+        ?int    $empresa_id = null,
+        ?string $sortName = "id",
+        ?string $sortOrder = "desc"
+    )
+    {
+        return Usuarios::query()
+            ->with("empresa")
+            ->when(!empty($pesquisa), function ($query) use ($pesquisa) {
+                $query->where("nome", "like", "%$pesquisa%");
+                $query->orWhere("email", "like", "%$pesquisa%");
+            })
+            ->when(!empty($empresa_id), function ($query) use ($empresa_id) {
+                $query->where("empresa_id", "=", $empresa_id);
+            })
+            ->orderBy($sortName, $sortOrder)
+            ->paginate();
+    }
+
+    public function criarUsuario(array $dados): Usuarios
+    {
+        $dados["senha"] = Hash::make($dados['senha']);
+        return Usuarios::create($dados);
+    }
+
+    public function editar($id, array $dados)
+    {
+        $usuario = Usuarios::where("id", $id)->first();
+
+        if (!empty($dados["senha"])) {
+            $dados["senha"] = Hash::make($dados['senha']);
+        } else {
+            unset($dados['senha']);
+        }
+
+        $usuario->fill($dados);
+        $usuario->save($dados);
+        return $usuario;
     }
 }

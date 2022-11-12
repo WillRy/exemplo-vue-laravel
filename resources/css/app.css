@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
+@import "~vue-multiselect/dist/vue-multiselect.css";
 @import "~vue-toast-notification/dist/theme-sugar.css";
 @import "~floating-vue/dist/style.css";
 
 @import "./normalize.css";
 @import "./tabela.css";
 @import "./grid.css";
+@import "./select.css";
 
 
 * {
