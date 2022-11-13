@@ -14,11 +14,11 @@ de exemplificar:
 
 **senha:** 123456
 
-## Configurar o .env
-
-- Configurar o .env com as credenciais de banco
+**URL:** http://localhost:8000
 
 ## Executar o projeto
+
+- Configurar o .env com as credenciais de banco
 
 ```shell
 npm install
