@@ -163,7 +163,7 @@ export default {
             axios.get('/empresas/listar', {
                 params: {
                     ...(this.form.pesquisa ? {pesquisa: this.form.pesquisa} : {}),
-                    page: 1,
+                    ...(this.page ? {page: this.page} : {}),
                     sortOrder: this.sortOrder,
                     sortName: this.sortName,
                 }

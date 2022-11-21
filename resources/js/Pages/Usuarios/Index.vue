@@ -126,10 +126,14 @@ import ModalCriarUsuario from "../../components/usuarios/ModalCriarUsuario";
 import ModalEditarUsuario from "../../components/usuarios/ModalEditarUsuario";
 import ModalExcluirUsuario from "../../components/usuarios/ModalExcluirUsuario";
 import BaseSelectAjax from "../../components/base/form/BaseSelectAjax";
+import BaseCheckbox from "../../components/base/form/BaseCheckbox";
+import BaseCheckboxMultiple from "../../components/base/form/BaseCheckboxMultiple";
 
 export default {
     name: "Index",
     components: {
+        BaseCheckboxMultiple,
+        BaseCheckbox,
         BaseSelectAjax,
         ModalExcluirUsuario,
         ModalEditarUsuario,
@@ -144,7 +148,8 @@ export default {
     setup() {
         const form = useForm({
             pesquisa: '',
-            empresa_id: null
+            empresa_id: null,
+            ativo: []
         });
         return {form};
     },
@@ -193,7 +198,7 @@ export default {
                 params: {
                     ...(this.form.pesquisa ? {pesquisa: this.form.pesquisa} : {}),
                     ...(this.form.empresa_id ? {empresa_id: this.form.empresa_id.id} : {}),
-                    page: 1,
+                    ...(this.page ? {page: this.page} : {}),
                     sortOrder: this.sortOrder,
                     sortName: this.sortName,
                 }
