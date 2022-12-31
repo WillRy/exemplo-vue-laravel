@@ -32,18 +32,20 @@ class UsuarioController extends Controller
 
     public function cadastrar(Request $request)
     {
-        $dados = $request->validate([
-            "nome" => "required|max:255",
-            "email" => "required|email|max:255|unique:usuarios,email",
-            "senha" => "required|min:6|max:12",
-            "empresa_id" => "required|exists:empresas,id",
-            "admissao" => "nullable|date|before_or_equal:today",
-        ], [
-            'empresa_id.required' => 'O campo Empresa é obrigatório.',
-            'empresa_id.exists' => 'O campo Empresa é obrigatório.',
-            'admissao.date' => 'O campo Admissão deve ser uma data.',
-            'admissao.before_or_equal' => 'O campo Admissão deve ser menor ou igual a hoje.',
-        ]);
+        $dados = $request->validate(
+            [
+                "nome" => "required|max:255",
+                "email" => "required|email|max:255|unique:usuarios,email",
+                "senha" => "required|min:6|max:12",
+                "empresa_id" => "required|exists:empresas,id",
+                "admissao" => "nullable|date|before_or_equal:today",
+            ],
+            [],
+            [
+                'empresa_id' => 'Empresa',
+                'admissao' => 'Admissão',
+            ]
+        );
 
         try {
             (new Usuarios())->criarUsuario($dados);
@@ -55,15 +57,18 @@ class UsuarioController extends Controller
 
     public function editar(Request $request, $id)
     {
-        $dados = $request->validate([
-            "nome" => "required|max:255",
-            "email" => "required|email|max:255|unique:usuarios,email,$id",
-            "senha" => "nullable|min:6|max:12",
-            "admissao" => "nullable|date|before_or_equal:today",
-        ], [
-            'admissao.date' => 'O campo Admissão deve ser uma data.',
-            'admissao.before_or_equal' => 'O campo Admissão deve ser menor ou igual a hoje.',
-        ]);
+        $dados = $request->validate(
+            [
+                "nome" => "required|max:255",
+                "email" => "required|email|max:255|unique:usuarios,email,$id",
+                "senha" => "nullable|min:6|max:12",
+                "admissao" => "nullable|date|before_or_equal:today",
+            ],
+            [],
+            [
+                'admissao' => 'Admissão',
+            ]
+        );
 
         try {
             (new Usuarios())->editar($id, $dados);

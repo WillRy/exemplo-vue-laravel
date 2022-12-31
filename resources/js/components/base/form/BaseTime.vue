@@ -5,7 +5,7 @@
             v-model="data"
             v-bind="attrs"
             is24hr
-            mode="date"
+            mode="time"
         >
             <template v-slot="{ inputValue, inputEvents }">
                 <input

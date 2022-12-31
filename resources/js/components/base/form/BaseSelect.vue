@@ -24,6 +24,9 @@
             <template v-if="noResult" #noResult>
                 {{ noResult }}
             </template>
+            <template v-slot:clear="" v-if="modelValue && remover">
+                <button class="btn-remover-select" @click="updateValue(null)">x</button>
+            </template>
         </VueMultiselect>
         <div v-if="error || $slots.error" class="errorMessage">
             <div>{{ error }}</div>
@@ -101,6 +104,10 @@ export default {
         }
     },
     methods: {
+        remove() {
+            this.$emit('update:modelValue', null)
+            this.$emit('change', null)
+        },
         updateValue(event) {
             this.$emit('update:modelValue', event)
             this.$emit('change', event)
@@ -118,9 +125,30 @@ label {
     display: block;
 }
 
-.errorMessage > :deep(div) {
+/deep/ .errorMessage > div {
     margin: 3px 0;
     color: var(--cor-input-error);
+}
+
+.destaque-remover {
+    color: var(--cor-danger);
+}
+
+.multiselect__option--highlight .destaque-remover {
+    color: #fff;
+}
+
+.btn-remover-select {
+    position: absolute;
+    right: 34px;
+    top: 10px;
+    z-index: 9;
+    background: var(--cor-danger);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 </style>
