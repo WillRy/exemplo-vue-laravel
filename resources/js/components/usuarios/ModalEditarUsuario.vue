@@ -132,7 +132,7 @@ export default {
             })
         },
         fecharModal() {
-            this.modalEditarUsuarioState.fecharModalEditarUsuario();
+            this.modalEditarUsuarioState.fechar();
             this.form.clearErrors();
             this.form.reset();
             this.$emit("onClose");

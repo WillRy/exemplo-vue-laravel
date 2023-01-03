@@ -194,13 +194,13 @@ export default {
             });
         },
         abrirCriar() {
-            this.modalCriarUsuarioState.abrirModalCriarUsuario();
+            this.modalCriarUsuarioState.abrir();
         },
         abrirEdicao(usuario) {
-            this.modalEditarUsuarioState.abrirModalEditarUsuario(usuario);
+            this.modalEditarUsuarioState.abrir(usuario);
         },
         abrirExclusao(usuario) {
-            this.modalExcluirUsuarioState.abrirModalExcluirUsuario(usuario);
+            this.modalExcluirUsuarioState.abrir(usuario);
         },
         sortBy({sortName, sortOrder}) {
             console.log(sortName, sortOrder)

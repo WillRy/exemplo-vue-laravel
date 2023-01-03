@@ -50,7 +50,7 @@ export default {
 
         },
         fecharModal() {
-            this.modalExcluirUsuarioState.fecharModalExcluirUsuario();
+            this.modalExcluirUsuarioState.fechar();
             this.form.clearErrors();
             this.form.reset();
             this.$emit("onClose");

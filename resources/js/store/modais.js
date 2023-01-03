@@ -9,11 +9,11 @@ export const modalCriarUsuarioStore = defineStore('modalCriarUsuario', {
         }
     },
     actions: {
-        abrirModalCriarUsuario(dados = {}) {
+        abrir(dados = {}) {
             this.open = true;
             this.payload = dados;
         },
-        fecharModalCriarUsuario() {
+        fechar() {
             this.open = false;
         },
         onReload(payload = {}) {
@@ -31,11 +31,11 @@ export const modalEditarUsuarioStore = defineStore('modalEditarUsuario', {
         }
     },
     actions: {
-        abrirModalEditarUsuario(dados = {}) {
+        abrir(dados = {}) {
             this.open = true;
             this.payload = dados;
         },
-        fecharModalEditarUsuario() {
+        fechar() {
             this.open = false;
         },
         onReload(payload = {}) {
@@ -53,11 +53,11 @@ export const modalExcluirUsuarioStore = defineStore('modalExcluirUsuarioStore', 
         }
     },
     actions: {
-        abrirModalExcluirUsuario(dados = {}) {
+        abrir(dados = {}) {
             this.open = true;
             this.payload = dados;
         },
-        fecharModalExcluirUsuario() {
+        fechar() {
             this.open = false;
         },
         onReload(payload = {}) {

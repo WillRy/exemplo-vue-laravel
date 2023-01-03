@@ -130,7 +130,7 @@ export default {
 
         },
         fecharModal() {
-            this.modalCriarUsuarioState.fecharModalCriarUsuario()
+            this.modalCriarUsuarioState.fechar()
             this.form.clearErrors();
             this.form.reset();
             this.$emit("onClose");
