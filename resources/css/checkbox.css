@@ -54,10 +54,12 @@ label.checkbox.blue {
 
 label.checkbox.blue input[type="checkbox"] {
     /*position: absolute;*/
-    right: -15px;
+    right: -20px;
     position: relative;
     opacity: 0;
     margin-left: -16px;
+    width: 18px;
+    height: 18px;
 }
 
 label.checkbox.blue input[type="checkbox"]:focus ~ span {

@@ -1,6 +1,6 @@
 <template>
     <BaseModal
-        :aberta="config"
+        :aberta="modalExcluirUsuarioState.open"
         @onClose="fecharModal"
         @onOpen="carregarFormulario"
     >
@@ -26,13 +26,17 @@
 import {useForm} from "@inertiajs/inertia-vue3";
 import BaseInput from "../base/form/BaseInput";
 import BaseModal from "../base/modal/BaseModel";
+import {modalExcluirUsuarioStore} from "../../store/modais";
 
 
 export default {
     name: "ModalExcluirUsuario",
     setup() {
         const form = useForm({});
-        return {form};
+
+        const modalExcluirUsuarioState = modalExcluirUsuarioStore();
+
+        return {form, modalExcluirUsuarioState};
     },
     components: {BaseModal, BaseInput},
     data() {
@@ -46,7 +50,7 @@ export default {
 
         },
         fecharModal() {
-            this.config = null;
+            this.modalExcluirUsuarioState.fecharModalExcluirUsuario();
             this.form.clearErrors();
             this.form.reset();
             this.$emit("onClose");
@@ -54,10 +58,10 @@ export default {
         async submit() {
             this.loading = true;
             this.form
-                .post(`/usuarios/excluir/${this.config.id}`, {
+                .post(`/usuarios/excluir/${this.modalExcluirUsuarioState.payload.id}`, {
                     onSuccess: () => {
                         this.fecharModal();
-                        this.$eventBus.$emit("ModalExcluirUsuario:reload");
+                        this.modalExcluirUsuarioState.onReload();
                         this.loading = false;
                     },
                     onFinish: () => {
@@ -67,12 +71,8 @@ export default {
         }
     },
     beforeUnmount() {
-        this.$eventBus.$off("ModalExcluirUsuario:config");
     },
     created() {
-        this.$eventBus.$on("ModalExcluirUsuario:config", (evento) => {
-            this.config = evento;
-        });
     },
 }
 </script>

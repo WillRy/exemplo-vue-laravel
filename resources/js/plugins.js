@@ -1,4 +1,4 @@
-import {parseJSON, format} from 'date-fns'
+import {parseISO, format} from 'date-fns'
 import mitt from 'mitt'
 
 let filters = {
@@ -7,11 +7,11 @@ let filters = {
 
             data(value) {
                 if (value === '0000-00-00 00:00:00') return ''
-                return value ? format(value, "dd/MM/yyyy") : '';
+                return value ? format(parseISO(value), "dd/MM/yyyy") : '';
             },
             dataHora(value) {
                 if (value === '0000-00-00 00:00:00') return ''
-                return value ? format(value, "dd/MM/yyyy HH:MM:ss") : '';
+                return value ? format(parseISO(value), "dd/MM/yyyy HH:MM:ss") : '';
             },
             dinheiro(valor) {
                 return (new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(valor));

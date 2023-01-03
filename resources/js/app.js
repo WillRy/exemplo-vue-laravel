@@ -14,10 +14,15 @@ import Loader from "./components/base/Loader";
 
 import {filters, EventBus} from './plugins';
 
+
+import { createPinia } from 'pinia'
+const pinia = createPinia()
+
 createInertiaApp({
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
     setup({el, App, props, plugin}) {
         createApp({render: () => h(App, props)})
+            .use(pinia)
             .use(plugin)
             .use(VueToast)
             .use(FloatingVue)

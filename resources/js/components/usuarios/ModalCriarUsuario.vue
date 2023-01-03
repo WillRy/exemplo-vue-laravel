@@ -1,6 +1,6 @@
 <template>
     <BaseModal
-        :aberta="config"
+        :aberta="modalCriarUsuarioState.open"
         @onClose="fecharModal"
         @onOpen="carregarFormulario"
     >
@@ -90,11 +90,13 @@ import BaseModal from "../base/modal/BaseModel";
 import BaseSelectAjax from "../base/form/BaseSelectAjax";
 import axios from "axios";
 import BaseDate from "../base/form/BaseDate";
+import {modalCriarUsuarioStore} from "../../store/modais";
 
 
 export default {
     name: "ModalCriarUsuario",
     setup() {
+
         const form = useForm({
             nome: '',
             email: '',
@@ -102,7 +104,11 @@ export default {
             empresa_id: null,
             admissao: null,
         });
-        return {form};
+
+        const modalCriarUsuarioState = modalCriarUsuarioStore();
+
+
+        return {form, modalCriarUsuarioState};
     },
     components: {BaseDate, BaseSelectAjax, BaseModal, BaseInput},
     data() {
@@ -112,7 +118,9 @@ export default {
             resultadoPesquisaEmpresa: []
         }
     },
+    computed: {},
     methods: {
+
         pesquisarEmpresa(pesquisa) {
             axios.get(`/empresas/listar`, {params: {pesquisa: pesquisa}}).then((response) => {
                 this.resultadoPesquisaEmpresa = response.data.data.data;
@@ -122,12 +130,13 @@ export default {
 
         },
         fecharModal() {
-            this.config = null;
+            this.modalCriarUsuarioState.fecharModalCriarUsuario()
             this.form.clearErrors();
             this.form.reset();
             this.$emit("onClose");
         },
         async submit() {
+
             this.loading = true;
             this.form
                 .transform((data => {
@@ -139,7 +148,7 @@ export default {
                 .post(`/usuarios/cadastrar`, {
                     onSuccess: () => {
                         this.fecharModal();
-                        this.$eventBus.$emit("ModalCriarUsuario:reload");
+                        this.modalCriarUsuarioState.onReload();
                         this.loading = false;
                     },
                     onFinish: () => {
@@ -149,12 +158,8 @@ export default {
         }
     },
     beforeUnmount() {
-        this.$eventBus.$off("ModalCriarUsuario:config");
     },
     created() {
-        this.$eventBus.$on("ModalCriarUsuario:config", (evento) => {
-            this.config = evento;
-        });
     },
 }
 </script>

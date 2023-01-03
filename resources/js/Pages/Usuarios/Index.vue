@@ -128,6 +128,8 @@ import ModalExcluirUsuario from "../../components/usuarios/ModalExcluirUsuario";
 import BaseSelectAjax from "../../components/base/form/BaseSelectAjax";
 import BaseCheckbox from "../../components/base/form/BaseCheckbox";
 import BaseCheckboxMultiple from "../../components/base/form/BaseCheckboxMultiple";
+import {mapActions, mapState} from 'pinia'
+import {modalCriarUsuarioStore, modalEditarUsuarioStore, modalExcluirUsuarioStore} from '../../store/modais'
 
 export default {
     name: "Index",
@@ -151,7 +153,29 @@ export default {
             empresa_id: null,
             ativo: []
         });
-        return {form};
+
+        const modalCriarUsuarioState = modalCriarUsuarioStore();
+        const modalEditarUsuarioState = modalEditarUsuarioStore();
+        const modalExcluirUsuarioState = modalExcluirUsuarioStore();
+
+        return {form, modalCriarUsuarioState, modalEditarUsuarioState, modalExcluirUsuarioState};
+    },
+    watch: {
+        'modalCriarUsuarioState.reload': {
+            handler() {
+                this.buscarDados();
+            }
+        },
+        'modalEditarUsuarioState.reload': {
+            handler() {
+                this.buscarDados();
+            }
+        },
+        'modalExcluirUsuarioState.reload': {
+            handler() {
+                this.buscarDados();
+            }
+        },
     },
     data() {
         return {
@@ -170,13 +194,13 @@ export default {
             });
         },
         abrirCriar() {
-            this.$eventBus.$emit("ModalCriarUsuario:config", {});
+            this.modalCriarUsuarioState.abrirModalCriarUsuario();
         },
         abrirEdicao(usuario) {
-            this.$eventBus.$emit("ModalEditarUsuario:config", usuario);
+            this.modalEditarUsuarioState.abrirModalEditarUsuario(usuario);
         },
         abrirExclusao(usuario) {
-            this.$eventBus.$emit("ModalExcluirUsuario:config", usuario);
+            this.modalExcluirUsuarioState.abrirModalExcluirUsuario(usuario);
         },
         sortBy({sortName, sortOrder}) {
             console.log(sortName, sortOrder)
@@ -212,20 +236,9 @@ export default {
         }
     },
     beforeUnmount() {
-        this.$eventBus.$off('ModalCriarUsuario:reload')
-        this.$eventBus.$off('ModalEditarUsuario:reload')
-        this.$eventBus.$off('ModalExcluirUsuario:reload')
+
     },
     created() {
-        this.$eventBus.$on('ModalCriarUsuario:reload', (e) => {
-            this.buscarDados();
-        })
-        this.$eventBus.$on('ModalEditarUsuario:reload', (e) => {
-            this.buscarDados();
-        })
-        this.$eventBus.$on('ModalExcluirUsuario:reload', (e) => {
-            this.buscarDados();
-        })
         this.buscarDados();
     }
 }

@@ -1,6 +1,6 @@
 <template>
     <BaseModal
-        :aberta="config"
+        :aberta="modalEditarUsuarioState.open"
         @onClose="fecharModal"
         @onOpen="carregarFormulario"
     >
@@ -87,6 +87,7 @@ import axios from "axios";
 import BaseSelectAjax from "../base/form/BaseSelectAjax";
 import BaseSelect from "../base/form/BaseSelect";
 import BaseDate from "../base/form/BaseDate";
+import {modalEditarUsuarioStore} from "../../store/modais";
 
 
 export default {
@@ -99,7 +100,10 @@ export default {
             empresa_id: '',
             admissao: '',
         });
-        return {form};
+
+        const modalEditarUsuarioState = modalEditarUsuarioStore();
+
+        return {form, modalEditarUsuarioState};
     },
     components: {BaseDate, BaseSelect, BaseSelectAjax, Loader, BaseModal, BaseInput},
     data() {
@@ -113,7 +117,7 @@ export default {
     methods: {
         carregarFormulario() {
             this.loadingDados = true;
-            axios.get(`/usuarios/detalhes/${this.config.id}`).then((r) => {
+            axios.get(`/usuarios/detalhes/${this.modalEditarUsuarioState.payload.id}`).then((r) => {
                 Object.assign(this.form, r.data.data);
                 this.form.empresa_id = r.data.data.empresa;
                 this.empresas.push(this.form.empresa_id);
@@ -128,7 +132,7 @@ export default {
             })
         },
         fecharModal() {
-            this.config = null;
+            this.modalEditarUsuarioState.fecharModalEditarUsuario();
             this.form.clearErrors();
             this.form.reset();
             this.$emit("onClose");
@@ -136,10 +140,10 @@ export default {
         async submit() {
             this.loading = true;
             this.form
-                .post(`/usuarios/editar/${this.config.id}`, {
+                .post(`/usuarios/editar/${this.modalEditarUsuarioState.payload.id}`, {
                     onSuccess: () => {
                         this.fecharModal();
-                        this.$eventBus.$emit("ModalEditarUsuario:reload");
+                        this.modalEditarUsuarioState.onReload();
                         this.loading = false;
                     },
                     onFinish: () => {
@@ -149,12 +153,9 @@ export default {
         }
     },
     beforeUnmount() {
-        this.$eventBus.$off("ModalEditarUsuario:config");
+
     },
     created() {
-        this.$eventBus.$on("ModalEditarUsuario:config", (evento) => {
-            this.config = evento;
-        });
     },
 }
 </script>

@@ -149,6 +149,11 @@ label {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    padding: 2px 6px;
+}
+
+.btn-remover-select:hover {
+    filter: brightness(0.6);
 }
 
 </style>
