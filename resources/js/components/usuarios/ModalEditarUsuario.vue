@@ -87,7 +87,7 @@ import axios from "axios";
 import BaseSelectAjax from "../base/form/BaseSelectAjax";
 import BaseSelect from "../base/form/BaseSelect";
 import BaseDate from "../base/form/BaseDate";
-import {modalEditarUsuarioStore} from "../../store/modais";
+import {modalEditarUsuarioStore} from "../../store/usuarios/index";
 
 
 export default {

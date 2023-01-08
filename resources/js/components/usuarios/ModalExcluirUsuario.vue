@@ -26,7 +26,7 @@
 import {useForm} from "@inertiajs/inertia-vue3";
 import BaseInput from "../base/form/BaseInput";
 import BaseModal from "../base/modal/BaseModel";
-import {modalExcluirUsuarioStore} from "../../store/modais";
+import {modalExcluirUsuarioStore} from "../../store/usuarios/index";
 
 
 export default {

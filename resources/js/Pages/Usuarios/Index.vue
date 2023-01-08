@@ -128,8 +128,7 @@ import ModalExcluirUsuario from "../../components/usuarios/ModalExcluirUsuario";
 import BaseSelectAjax from "../../components/base/form/BaseSelectAjax";
 import BaseCheckbox from "../../components/base/form/BaseCheckbox";
 import BaseCheckboxMultiple from "../../components/base/form/BaseCheckboxMultiple";
-import {mapActions, mapState} from 'pinia'
-import {modalCriarUsuarioStore, modalEditarUsuarioStore, modalExcluirUsuarioStore} from '../../store/modais'
+import {modalCriarUsuarioStore, modalEditarUsuarioStore, modalExcluirUsuarioStore} from '../../store/usuarios/index'
 
 export default {
     name: "Index",

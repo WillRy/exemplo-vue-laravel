@@ -90,7 +90,7 @@ import BaseModal from "../base/modal/BaseModel";
 import BaseSelectAjax from "../base/form/BaseSelectAjax";
 import axios from "axios";
 import BaseDate from "../base/form/BaseDate";
-import {modalCriarUsuarioStore} from "../../store/modais";
+import {modalCriarUsuarioStore} from "../../store/usuarios/index";
 
 
 export default {
