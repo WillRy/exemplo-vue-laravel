@@ -10,8 +10,8 @@
         <template #body>
             <Loader width="60px" height="60px" :cor-principal="true" v-if="loadingDados"></Loader>
             <form @submit.prevent="submit" v-else>
-                <div class="row">
-                    <div class="col-md-12">
+                <div class="flex flex-wrap gap-xxs">
+                    <div class="w-full">
                         <BaseInput
                             v-model="form.nome"
                             :class="{error: form.errors.nome}"
@@ -20,7 +20,7 @@
                             placeholder="Nome"
                         />
                     </div>
-                    <div class="col-md-12">
+                    <div class="w-full">
                         <BaseInput
                             v-model="form.email"
                             :class="{ error: form.errors.email }"

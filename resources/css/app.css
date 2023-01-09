@@ -7,10 +7,13 @@
 
 @import "./normalize.css";
 @import "./tabelas.css";
-@import "./grid.css";
+/*@import "./grid.css";*/
 @import "./select.css";
 @import "./checkbox.css";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
     margin: 0;

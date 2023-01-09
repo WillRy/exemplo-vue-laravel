@@ -9,15 +9,15 @@
             <ContentTable>
                 <template #header>
                     <form @submit.prevent="pesquisar">
-                        <div class="row align-items-center">
-                            <div class="col-md-4">
+                        <div class="flex flex-wrap items-center gap-s">
+                            <div class="md:w-4/12 w-full">
                                 <BaseInput
                                     label="Pesquisa"
                                     name="pesquisa"
                                     v-model="form.pesquisa"
                                 />
                             </div>
-                            <div class="col-md-auto">
+                            <div class="md:w-auto w-full">
                                 <BaseButtonPrimary :loading="loading">
                                     Pesquisar
                                 </BaseButtonPrimary>

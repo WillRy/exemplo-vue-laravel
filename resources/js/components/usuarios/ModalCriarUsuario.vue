@@ -5,12 +5,12 @@
         @onOpen="carregarFormulario"
     >
         <template #title>
-            <h3>Criação de usuarios</h3>
+            <h3>Criação de usuário</h3>
         </template>
         <template #body>
             <form @submit.prevent="submit">
-                <div class="row">
-                    <div class="col-md-12">
+                <div class="flex flex-wrap gap-xxs">
+                    <div class="w-full">
                         <BaseSelectAjax
                             label="Empresa *"
                             placeholder="Pesquise as empresas"
@@ -29,7 +29,7 @@
                         </BaseSelectAjax>
                     </div>
 
-                    <div class="col-md-12">
+                    <div class="w-full">
                         <BaseInput
                             v-model="form.nome"
                             :class="{error: form.errors.nome}"
@@ -38,7 +38,7 @@
                             placeholder="Nome"
                         />
                     </div>
-                    <div class="col-md-12">
+                    <div class="w-full">
                         <BaseInput
                             v-model="form.email"
                             :class="{ error: form.errors.email }"
@@ -48,7 +48,7 @@
                             type="email"
                         />
                     </div>
-                    <div class="col-md-12">
+                    <div class="w-full">
                         <BaseInput
                             v-model="form.senha"
                             :class="{ error: form.errors.senha }"
@@ -58,7 +58,7 @@
                             type="password"
                         />
                     </div>
-                    <div class="col-md-12">
+                    <div class="w-full">
                         <BaseDate
                             v-model="form.admissao"
                             :class="{ error: form.errors.admissao }"

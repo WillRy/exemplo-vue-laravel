@@ -1,5 +1,5 @@
 <template>
-    <div class="usuarios">
+    <div class="usuarios text-primary-900">
         <HeaderPage titulo="Usuários">
             <BaseButtonPrimary @click="abrirCriar">
                 Criar
@@ -9,15 +9,15 @@
             <ContentTable>
                 <template #header>
                     <form @submit.prevent="pesquisar">
-                        <div class="row align-items-center">
-                            <div class="col-md-4">
+                        <div class="flex flex-wrap items-center gap-s">
+                            <div class="md:w-4/12 w-full">
                                 <BaseInput
                                     label="Pesquisa"
                                     name="pesquisa"
                                     v-model="form.pesquisa"
                                 />
                             </div>
-                            <div class="col-md-4">
+                            <div class="md:w-4/12 w-full">
                                 <BaseSelectAjax
                                     label="Empresa"
                                     placeholder="Pesquise as empresas"
@@ -32,36 +32,36 @@
                                 >
                                 </BaseSelectAjax>
                             </div>
-                            <div class="col-md-auto">
+                            <div class="md:w-auto w-full">
                                 <BaseButtonPrimary :loading="loading">
                                     Pesquisar
                                 </BaseButtonPrimary>
                             </div>
-<!--                            <div class="col-md-auto">-->
-<!--                                <BaseButtonAction :loading="loading">-->
-<!--                                    Pesquisar-->
-<!--                                </BaseButtonAction>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-auto">-->
-<!--                                <BaseButtonDanger :loading="loading">-->
-<!--                                    Pesquisar-->
-<!--                                </BaseButtonDanger>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-auto">-->
-<!--                                <base-button-secondary :loading="loading">-->
-<!--                                    Pesquisar-->
-<!--                                </base-button-secondary>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-auto">-->
-<!--                                <BaseButtonSuccess :loading="loading">-->
-<!--                                    Pesquisar-->
-<!--                                </BaseButtonSuccess>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-auto">-->
-<!--                                <BaseButtonWarning :loading="loading">-->
-<!--                                    Pesquisar-->
-<!--                                </BaseButtonWarning>-->
-<!--                            </div>-->
+                            <!--                            <div class="col-md-auto">-->
+                            <!--                                <BaseButtonAction :loading="loading">-->
+                            <!--                                    Pesquisar-->
+                            <!--                                </BaseButtonAction>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="col-md-auto">-->
+                            <!--                                <BaseButtonDanger :loading="loading">-->
+                            <!--                                    Pesquisar-->
+                            <!--                                </BaseButtonDanger>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="col-md-auto">-->
+                            <!--                                <base-button-secondary :loading="loading">-->
+                            <!--                                    Pesquisar-->
+                            <!--                                </base-button-secondary>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="col-md-auto">-->
+                            <!--                                <BaseButtonSuccess :loading="loading">-->
+                            <!--                                    Pesquisar-->
+                            <!--                                </BaseButtonSuccess>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="col-md-auto">-->
+                            <!--                                <BaseButtonWarning :loading="loading">-->
+                            <!--                                    Pesquisar-->
+                            <!--                                </BaseButtonWarning>-->
+                            <!--                            </div>-->
                         </div>
                     </form>
                 </template>

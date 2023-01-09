@@ -1,6 +1,6 @@
 <template>
     <div class="content-table">
-        <div class="container-fluid">
+        <div class="p-s">
             <slot name="header">
 
             </slot>

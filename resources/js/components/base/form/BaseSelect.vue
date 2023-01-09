@@ -141,7 +141,7 @@ label {
 .btn-remover-select {
     position: absolute;
     right: 34px;
-    top: 10px;
+    top: 8px;
     z-index: 9;
     background: var(--error-color-500);
     color: #fff;
@@ -149,7 +149,12 @@ label {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    padding: 2px 6px;
+    /* padding: 4px; */
+    height: 22px;
+    width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-remover-select:hover {

@@ -1363,46 +1363,6 @@
     }
 }
 
-.d-inline {
-    display: inline !important;
-}
-
-.d-inline-block {
-    display: inline-block !important;
-}
-
-.d-block {
-    display: block !important;
-}
-
-.d-grid {
-    display: grid !important;
-}
-
-.d-table {
-    display: table !important;
-}
-
-.d-table-row {
-    display: table-row !important;
-}
-
-.d-table-cell {
-    display: table-cell !important;
-}
-
-.d-flex {
-    display: flex !important;
-}
-
-.d-inline-flex {
-    display: inline-flex !important;
-}
-
-.d-none {
-    display: none !important;
-}
-
 .flex-fill {
     flex: 1 1 auto !important;
 }
@@ -5028,26 +4988,31 @@
 }
 
 
-.gap-0 {
-    gap: 0 !important;
+/**
+Spacing
+ */
+.gap-xxs {
+    gap: 4px !important;
 }
 
-.gap-1 {
-    gap: 0.25rem !important;
+.gap-xs {
+    gap: 8px !important;
 }
 
-.gap-2 {
-    gap: 0.5rem !important;
+.gap-s {
+    gap: 16px !important;
 }
 
-.gap-3 {
-    gap: 1rem !important;
+.gap-m {
+    gap: 24px !important;
 }
 
-.gap-4 {
-    gap: 1.5rem !important;
+.gap-l {
+    gap: 48px !important;
 }
 
-.gap-5 {
-    gap: 3rem !important;
+.gap-xl {
+    gap: 96px !important;
 }
+
+

@@ -247,8 +247,8 @@ fieldset[disabled] .multiselect {
 
 .multiselect__placeholder {
     display: inline-block;
-    margin-bottom: 6px;
-    padding-top: 2px;
+    margin-bottom: 4px;
+    /*padding-top: 2px;*/
 
     font-size: 16px;
     color: var(--gray-700);

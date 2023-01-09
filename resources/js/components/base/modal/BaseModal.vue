@@ -183,7 +183,7 @@ export default {
     position: relative;
 }
 
-.base-modal-title :deep(h3) {
+.base-modal-title h3 {
     margin: 0;
     text-align: center;
     color: var(--primary-color-500);
