@@ -1,8 +1,8 @@
 <template>
     <table class="tabela" :class="{loading: loading}">
         <thead>
-        <TabelaHeadSort
-            @onSort="sortBy(coluna.nome)"
+        <HeadSort
+            @onSort="sortBy(coluna.order ? coluna.order : coluna.nome)"
             v-for="(coluna,index) in colunas"
             :info="coluna.info"
             :key="index"
@@ -10,6 +10,7 @@
             :texto="coluna.texto"
             :ordenando="sortName"
             :order="sortOrder"
+            :disabled="coluna.disabled"
         />
         <slot name="acoes" v-if="$slots.acoes">
         </slot>
@@ -17,7 +18,7 @@
         <tbody v-if="dados && dados.length">
         <slot name="colunas" :dados="dados"></slot>
         </tbody>
-        <tbody v-if="(!dados && !loading ) || (dados && !dados.length && !loading)"
+        <tbody v-if="(!dados && !loading) || (dados && dados.length === 0 && !loading)"
                class="tabela-vazia">
         <tr>
             <td colspan="99999">{{ textoEmpty }}</td>
@@ -27,11 +28,11 @@
 </template>
 
 <script>
-import TabelaHeadSort from "./TabelaHeadSort";
+import HeadSort from "./HeadSort";
 
 export default {
     name: "Tabela",
-    components: {TabelaHeadSort},
+    components: {HeadSort},
     props: {
         textoEmpty: {
             type: String,

@@ -120,18 +120,18 @@ export default {
 label {
     font-weight: 700;
     font-size: 14px;
-    color: var(--cor-label);
+    color: var(--gray-800);
     margin-bottom: 8px;
     display: block;
 }
 
 /deep/ .errorMessage > div {
     margin: 3px 0;
-    color: var(--cor-input-error);
+    color: var(--error-color-500);
 }
 
 .destaque-remover {
-    color: var(--cor-danger);
+    color: var(--error-color-500);
 }
 
 .multiselect__option--highlight .destaque-remover {
@@ -143,7 +143,7 @@ label {
     right: 34px;
     top: 10px;
     z-index: 9;
-    background: var(--cor-danger);
+    background: var(--error-color-500);
     color: #fff;
     font-weight: bold;
     border: none;
@@ -154,6 +154,14 @@ label {
 
 .btn-remover-select:hover {
     filter: brightness(0.6);
+}
+
+.error > input, input.error {
+    border: 1px solid var(--error-color-500) !important;
+}
+
+.error .multiselect__tags {
+    border: 1px solid var(--error-color-500) !important;
 }
 
 </style>

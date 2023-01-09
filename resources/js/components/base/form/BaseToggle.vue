@@ -80,7 +80,7 @@ export default {
 .label {
     font-weight: 700;
     font-size: 14px;
-    color: var(--cor-label);
+    color: var(--gray-800);
     margin-bottom: 8px;
     display: block;
 }
@@ -125,7 +125,7 @@ export default {
 }
 
 .check:checked + .checktoggle {
-    background-color: var(--cor-principal);
+    background-color: var(--primary-color-500);
     box-shadow: none;
 }
 
@@ -157,7 +157,7 @@ export default {
     transform: translate(5px, -50%);
     width: 32px;
     height: 32px;
-    background-color: var(--cor-principal);
+    background-color: var(--primary-color-500);
     border-radius: 50%;
     transition: left 300ms ease, transform 300ms ease;
 }

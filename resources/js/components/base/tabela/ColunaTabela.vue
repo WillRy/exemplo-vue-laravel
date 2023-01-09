@@ -1,5 +1,5 @@
 <template>
-    <td :style="{'max-width': width}" class="td-oculta-texto">
+    <td :style="{width: width }" class="td-oculta-texto">
         <div class="item">
             <div class="item-query">
                 <span class="overflow">
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-    name: "TabelaColuna",
+    name: "ColunaTabela",
     props: {
         width: {
             default: null

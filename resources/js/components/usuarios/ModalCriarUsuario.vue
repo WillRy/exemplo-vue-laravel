@@ -86,7 +86,7 @@
 <script>
 import {useForm} from "@inertiajs/inertia-vue3";
 import BaseInput from "../base/form/BaseInput";
-import BaseModal from "../base/modal/BaseModel";
+import BaseModal from "../base/modal/BaseModal";
 import BaseSelectAjax from "../base/form/BaseSelectAjax";
 import axios from "axios";
 import BaseDate from "../base/form/BaseDate";

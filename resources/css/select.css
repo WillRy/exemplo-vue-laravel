@@ -24,7 +24,7 @@ fieldset[disabled] .multiselect {
     width: 16px;
     height: 16px;
     border-radius: 100%;
-    border-color: var(--cor-principal) transparent transparent;
+    border-color: var(--primary-color-500) transparent transparent;
     border-style: solid;
     border-width: 2px;
     box-shadow: 0 0 0 1px transparent
@@ -156,7 +156,7 @@ fieldset[disabled] .multiselect {
     display: block;
     padding: 10px 40px 0 8px;
     border-radius: 8px;
-    border: 1px solid #BBBFC466;
+    border: 1px solid var(--gray-400);
     background: #fff;
     font-size: 14px;
 }
@@ -169,7 +169,7 @@ fieldset[disabled] .multiselect {
     margin-right: 10px;
     color: #fff;
     line-height: 1;
-    background: var(--cor-principal);
+    background: var(--primary-color-500);
     margin-bottom: 5px;
     white-space: nowrap;
     overflow: hidden;
@@ -251,7 +251,7 @@ fieldset[disabled] .multiselect {
     padding-top: 2px;
 
     font-size: 16px;
-    color: var(--cor-placeholder);
+    color: var(--gray-700);
 }
 
 .multiselect--active .multiselect__placeholder {
@@ -324,14 +324,14 @@ fieldset[disabled] .multiselect {
 }
 
 .multiselect__option--highlight {
-    background: var(--cor-principal);
+    background: var(--primary-color-500);
     outline: none;
     color: #fff
 }
 
 .multiselect__option--highlight:after {
     content: attr(data-select);
-    background: var(--cor-principal);
+    background: var(--primary-color-500);
     color: #fff
 }
 
@@ -347,12 +347,12 @@ fieldset[disabled] .multiselect {
 }
 
 .multiselect__option--selected.multiselect__option--highlight {
-    background: var(--cor-principal);
+    background: var(--primary-color-500);
     color: #fff
 }
 
 .multiselect__option--selected.multiselect__option--highlight:after {
-    background: var(--cor-principal);
+    background: var(--primary-color-500);
     content: attr(data-deselect);
     color: #fff
 }
@@ -388,12 +388,12 @@ fieldset[disabled] .multiselect {
 }
 
 .multiselect__option--group-selected.multiselect__option--highlight {
-    background: var(--cor-principal);
+    background: var(--primary-color-500);
     color: #fff
 }
 
 .multiselect__option--group-selected.multiselect__option--highlight:after {
-    background: var(--cor-principal);
+    background: var(--primary-color-500);
     content: attr(data-deselect);
     color: #fff
 }
@@ -470,4 +470,8 @@ fieldset[disabled] .multiselect {
 
 .multiselect__option {
 
+}
+
+.error .multiselect__tags {
+    border: 1px solid var(--error-color-500) !important;
 }

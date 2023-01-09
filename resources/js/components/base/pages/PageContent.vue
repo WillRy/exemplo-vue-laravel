@@ -1,7 +1,7 @@
 <template>
-    <div class="container-fluid">
-        <slot></slot>
-    </div>
+<div class="container-fluid">
+    <slot></slot>
+</div>
 </template>
 
 <script>

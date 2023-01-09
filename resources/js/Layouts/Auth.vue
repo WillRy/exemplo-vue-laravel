@@ -70,7 +70,7 @@ export default {
     height: 100vh;
     width: 100vw;
 
-    background-color: var(--cor-principal);
+    background-color: var(--primary-color-500);
     /*background: url("/img/auth-bg.jpg") center center no-repeat;*/
     background-size: cover;
 }

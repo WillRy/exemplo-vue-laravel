@@ -69,7 +69,7 @@ export default {
     top: 0;
     height: 100%;
     width: 64px;
-    background: var(--cor-principal);
+    background: var(--primary-color-500);
     padding: 0px 8px;
     z-index: 99;
     transition: all 0.5s ease;
@@ -217,7 +217,7 @@ export default {
     /*justify-content: center;*/
     text-decoration: none;
     transition: all 0.5s ease;
-    background: var(--cor-principal);
+    background: var(--primary-color-500);
     gap: 10px;
 }
 
@@ -271,7 +271,7 @@ img.black {
 .sidebar li a:hover .links_name,
 .sidebar li a:hover i {
     transition: all 0.5s ease;
-    color: var(--cor-principal);
+    color: var(--primary-color-500);
 }
 
 .sidebar li i {

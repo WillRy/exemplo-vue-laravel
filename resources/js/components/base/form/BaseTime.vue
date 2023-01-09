@@ -116,7 +116,7 @@ export default {
 .form-group label {
     font-weight: 700;
     font-size: 14px;
-    color: var(--cor-label);
+    color: var(--gray-800);
     margin-bottom: 8px;
     display: block;
     text-transform: capitalize;
@@ -124,7 +124,7 @@ export default {
 
 .form-group input {
     background: #FFFFFF;
-    border: 1px solid var(--cor-borda-principal);
+    border: 1px solid var(--gray-400);
     border-radius: var(--radius-principal);
     padding: 10px;
     display: block;
@@ -133,17 +133,21 @@ export default {
     color: #444444;
 }
 
+.form-group input.error {
+    border-color: var(--error-color-500);
+}
+
 .form-group input::placeholder {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-    color: var(--cor-placeholder);
+    color: var(--gray-700);
 }
 
 
 /deep/ .errorMessage > div {
     margin: 3px 0;
-    color: var(--cor-input-error);
+    color: var(--error-color-500);
 }
 </style>

@@ -73,11 +73,11 @@
                 >
                     <template v-slot:colunas="{ dados }">
                         <tr v-for="(dado,index) in dados" :key="index">
-                            <TabelaColuna>{{ dado.id }}</TabelaColuna>
-                            <TabelaColuna>{{ dado.nome }}</TabelaColuna>
-                            <TabelaColuna>{{ dado.email }}</TabelaColuna>
-                            <TabelaColuna>{{ $filters.data(dado.admissao) }}</TabelaColuna>
-                            <TabelaColuna>{{ dado.empresa.nome }}</TabelaColuna>
+                            <ColunaTabela>{{ dado.id }}</ColunaTabela>
+                            <ColunaTabela>{{ dado.nome }}</ColunaTabela>
+                            <ColunaTabela>{{ dado.email }}</ColunaTabela>
+                            <ColunaTabela>{{ $filters.data(dado.admissao) }}</ColunaTabela>
+                            <ColunaTabela>{{ dado.empresa.nome }}</ColunaTabela>
                             <th class="coluna-acoes">
                                 <DropdownAcoes :fundoClaro="true">
                                     <button @click="abrirEdicao(dado)">Editar</button>
@@ -113,10 +113,10 @@ import PageContent from "../../components/base/pages/PageContent";
 import Box from "../../components/base/pages/ContentBox";
 import ContentBox from "../../components/base/pages/ContentBox";
 import ContentTable from "../../components/base/pages/ContentTable";
-import TabelaHeadSort from "../../components/base/tabela/TabelaHeadSort";
+import HeadSort from "../../components/base/tabela/HeadSort";
 import Tabela from "../../components/base/tabela/Tabela";
 import axios from "axios";
-import TabelaColuna from "../../components/base/tabela/TabelaColuna";
+import ColunaTabela from "../../components/base/tabela/ColunaTabela";
 import PaginacaoSemRouter from "../../components/base/paginacao/PaginacaoSemRouter";
 import BaseInput from "../../components/base/form/BaseInput";
 import {useForm} from "@inertiajs/inertia-vue3";
@@ -143,7 +143,7 @@ export default {
         ButtonPrimary,
         BaseInput,
         PaginacaoSemRouter,
-        TabelaColuna, Tabela, TabelaHeadSort, ContentTable, ContentBox, Box, PageContent, HeaderPage
+        ColunaTabela, Tabela, HeadSort, ContentTable, ContentBox, Box, PageContent, HeaderPage
     },
     layout: Dashboard,
     setup() {

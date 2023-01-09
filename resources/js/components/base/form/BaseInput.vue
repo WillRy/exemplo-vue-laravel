@@ -70,7 +70,7 @@ export default {
 label {
   font-weight: 700;
   font-size: 14px;
-  color: var(--cor-label);
+  color: var(--gray-800);
   margin-bottom: 8px;
   display: block;
 }
@@ -96,7 +96,7 @@ label {
 
 input {
   background: #FFFFFF;
-  border: 1px solid var(--cor-borda-principal);
+  border: 1px solid var(--gray-400);
   border-radius: var(--radius-principal);
   width: 100%;
   font-size: 16px;
@@ -105,6 +105,15 @@ input {
   color: #444444;
   font-weight: normal;
 }
+
+.error > input, input.error {
+    border: 1px solid var(--error-color-500) !important;
+}
+
+.error .multiselect__tags {
+    border: 1px solid var(--error-color-500) !important;
+}
+
 
 input:disabled {
   background: #e4e4e4;
@@ -127,13 +136,13 @@ input:disabled {
 
 input::placeholder {
   font-size: 16px;
-  color: var(--cor-placeholder);
+  color: var(--gray-700);
 }
 
 
 /deep/ .errorMessage > div {
   margin: 3px 0;
-  color: var(--cor-input-error);
+  color: var(--error-color-500);
 }
 
 .form-group-container:deep(.legenda) {

@@ -1,0 +1,171 @@
+/**
+Heading
+*/
+.heading-text-xxxl {
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 5rem;
+}
+
+.heading-text-xxl {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 3.75rem;
+}
+
+.heading-text-xl {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 3rem;
+}
+
+.heading-text-lg {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 2.5rem;
+}
+
+.heading-text-md {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.995rem;
+}
+
+
+@media all and (max-width: 786px) {
+    .heading-text-xxxl {
+        font-size: 3rem;
+        font-weight: bold;
+        line-height: 3.75rem;
+    }
+
+    .heading-text-xxl {
+        font-size: 2.5rem;
+        font-weight: bold;
+        line-height: 3.125rem;
+    }
+
+    .heading-text-xl {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .heading-text-lg {
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.8rem;
+    }
+
+    .heading-text-md {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+}
+
+/**
+Subtitle
+*/
+.subtitle-text-lg {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: normal;
+}
+
+.subtitle-text-sm {
+    font-size: 1.5rem;
+    line-height: 1.995rem;
+    font-weight: normal;
+}
+
+
+@media all and (max-width: 786px) {
+    .subtitle-text-lg {
+        font-size: 1.5rem;
+        line-height: 1.995rem;
+    }
+
+    .subtitle-text-sm {
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+    }
+}
+
+/**
+Body
+*/
+.body-text-lg {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: normal;
+}
+
+.body-text-sm {
+    font-size: 0.875rem;
+    line-height: 1.4875rem;
+    font-weight: normal;
+}
+
+/**
+Caption
+*/
+.caption-text {
+    font-size: 0.75rem;
+    line-height: 0.9975rem;
+    font-weight: normal;
+}
+
+
+/**
+Overline
+*/
+.overline-text {
+    text-decoration: overline;
+    font-size: 0.75rem;
+    line-height: 0.9975rem;
+    font-weight: bold;
+}
+
+
+/**
+Action
+*/
+.action-text-lg {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+}
+
+.action-text-sm {
+    font-size: 0.875rem;
+    line-height: 1.0063rem;
+    font-weight: normal;
+}
+
+
+/**
+Interaction
+*/
+
+.interaction-text-lg {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.interaction-text-md {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.0063rem;
+}
+
+.interaction-text-sm {
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 0.9975rem;
+}
+
+/**
+Link
+*/

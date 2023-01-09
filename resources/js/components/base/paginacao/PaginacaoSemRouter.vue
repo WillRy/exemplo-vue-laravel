@@ -104,7 +104,7 @@ li a {
 }
 
 li a.router-link-exact-active, li a:hover, .active {
-    background: var(--cor-principal);
+    background: var(--primary-color-500);
     color: #fff;
 }
 

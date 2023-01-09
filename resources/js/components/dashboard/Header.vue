@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
 .header {
-    background: var(--cor-principal);
+    background: var(--primary-color-500);
     height: 64px;
     width: 100%;
 
@@ -46,7 +46,7 @@ export default {
 
 .item-content {
     /* padding: 8px; */
-    background: var(--cor-principal);
+    background: var(--primary-color-500);
     display: flex;
     align-items: center;
     transition: all .2s;

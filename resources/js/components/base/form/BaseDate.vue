@@ -28,11 +28,12 @@
 </template>
 
 <script>
-import {format, parseJSON} from 'date-fns'
+import {format, parseISO, parseJSON} from 'date-fns'
 
 export default {
     name: "BaseDate",
     inheritAttrs: false,
+    emits: ['update:modelValue', 'update:formatado', 'change', 'changeFormatado'],
     props: {
         error: {
             default: null,
@@ -68,20 +69,15 @@ export default {
         data: {
             set(valor) {
                 if (valor) {
-                    let objeto = parseJSON(valor);
-                    let string = format(valor, 'yyyy-MM-dd');
+                    let objeto = typeof valor === 'object' ? valor : new Date(valor).setHours(0, 0, 0);
+                    let string = format(objeto, 'yyyy-MM-dd');
                     this.$emit('update:modelValue', objeto);
                     this.$emit('update:formatado', string);
                 }
                 return null;
             },
             get() {
-                let valor = this.modelValue || this.formatado;
-                if (valor) {
-                    return parseJSON(valor)
-                }
-                return null;
-
+                return this.modelValue;
             }
         },
     },
@@ -89,7 +85,9 @@ export default {
         data(valor) {
             let string = null;
             if (valor) {
-                string = format(valor, 'yyyy-MM-dd');
+                let objeto = typeof valor === 'object' ? valor : new Date(valor).setHours(0, 0, 0);
+
+                string = format(objeto, 'yyyy-MM-dd');
             } else {
                 string = null;
             }
@@ -116,7 +114,7 @@ export default {
 .form-group label {
     font-weight: 700;
     font-size: 14px;
-    color: var(--cor-label);
+    color: var(--gray-800);
     margin-bottom: 8px;
     display: block;
     text-transform: capitalize;
@@ -124,7 +122,7 @@ export default {
 
 .form-group input {
     background: #FFFFFF;
-    border: 1px solid var(--cor-borda-principal);
+    border: 1px solid var(--gray-400);
     border-radius: var(--radius-principal);
     padding: 10px;
     display: block;
@@ -133,17 +131,26 @@ export default {
     color: #444444;
 }
 
+.error > input, input.error {
+    border: 1px solid var(--error-color-500) !important;
+}
+
+.error .multiselect__tags {
+    border: 1px solid var(--error-color-500) !important;
+}
+
+
 .form-group input::placeholder {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-    color: var(--cor-placeholder);
+    color: var(--gray-700);
 }
 
 
 /deep/ .errorMessage > div {
     margin: 3px 0;
-    color: var(--cor-input-error);
+    color: var(--error-color-500);
 }
 </style>

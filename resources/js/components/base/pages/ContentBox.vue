@@ -1,7 +1,9 @@
 <template>
-<div class="content-box">
-    <slot></slot>
-</div>
+    <div class="content">
+        <slot>
+
+        </slot>
+    </div>
 </template>
 
 <script>

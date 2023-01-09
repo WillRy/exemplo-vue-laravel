@@ -84,11 +84,29 @@ export default {
             if (this.fecharClickOutside) {
                 this.$emit('onClose');
             }
-        }
+        },
+        onEnter(e) {
+            if (e.key === 'Enter' && this.aberta) {
+                this.$emit("onEnter");
+            }
+        },
+        onEsc(e) {
+            if ((e.key === "Escape" || e.key === "Esc") && this.aberta) {
+                this.$emit("onEsc");
+            }
+        },
     },
+    beforeUnmount() {
+        window.removeEventListener('keyup', this.onEnter);
+        window.removeEventListener('keyup', this.onEsc);
+    },
+    created() {
+        window.addEventListener('keyup', this.onEnter);
+        window.addEventListener('keyup', this.onEsc);
+    }
 }
 </script>
-<style scoped>
+<style>
 
 
 .base-modal-container {
@@ -168,7 +186,7 @@ export default {
 .base-modal-title :deep(h3) {
     margin: 0;
     text-align: center;
-    color: var(--cor-principal);
+    color: var(--primary-color-500);
     font-size: 20px;
     word-break: break-word;
 }

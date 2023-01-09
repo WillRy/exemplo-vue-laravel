@@ -86,6 +86,10 @@
     /* border-top: 1px solid red; */
 }
 
+.tabela tbody tr:hover {
+    background: #e3e3e3;
+}
+
 .tabela a {
     color: #35528C;
     text-decoration: none;
@@ -116,11 +120,13 @@
     max-width: 50px;
     width: 50px;
 }
+
 .td-checkbox {
     min-width: 30px;
     width: 30px;
 }
-.td-checkbox  input{
+
+.td-checkbox input {
     margin: 0 auto;
     display: block;
 }
@@ -129,7 +135,7 @@
     cursor: pointer;
 }
 
-.tr-click.active,.tr-click:hover {
+.tr-click.active, .tr-click:hover {
     background: #f2f2f2;
 }
 

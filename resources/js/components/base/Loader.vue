@@ -60,6 +60,6 @@ svg * {
 }
 
 .fill-principal {
-    fill: var(--cor-principal);
+    fill: var(--primary-color-500);
 }
 </style>

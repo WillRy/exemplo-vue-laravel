@@ -61,7 +61,7 @@ export default {
 
 .logo {
     flex-shrink: 0;
-    color: var(--cor-principal);
+    color: var(--primary-color-500);
     display: none;
     transform: translate(9999px);
     opacity: 0;

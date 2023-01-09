@@ -1,21 +1,21 @@
 <template>
     <th style="{'max-width': width}">
-        <button @click="$emit('onSort')" v-if="!disabled">
-            <img v-if="(ordenando === nome || ordenando === order) && ordenando"
-                 :src="`/img/${orderMinuscula}.svg`" alt="">
+        <button @click="$emit('onSort')" v-if="!disabled" type="button">
+            <img v-if="(ordenando === nome || ordenando === order) && ordenando" :src="`/img/${orderMinuscula}.svg`"
+                 alt="">
             <img v-else :src="`/img/sort.svg`" alt="">
             {{ texto }}
 
             <img v-if="info" src="/img/information-azul.svg" alt="" class="info" v-tooltip="{content: info}">
         </button>
-        <span v-else>{{texto}}</span>
+        <span v-else>{{ texto }}</span>
     </th>
 </template>
 
 <script>
 export default {
-    name: "TabelaHeadSort",
-    props: ['nome', 'order', 'texto', "ordenando", 'width', 'info','disabled'],
+    name: "HeadSort",
+    props: ['nome', 'order', 'texto', "ordenando", 'width', 'info', 'disabled'],
     computed: {
         orderMinuscula() {
             if (!this.order) return "sort";
@@ -52,7 +52,6 @@ th span {
     background: none;
     border: none;
 }
-
 
 .info {
     width: 16px;

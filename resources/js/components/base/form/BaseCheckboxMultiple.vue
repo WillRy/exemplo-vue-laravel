@@ -68,6 +68,6 @@ export default {
 
 /deep/ .errorMessage > div {
     margin: 3px 0;
-    color: var(--cor-input-error);
+    color: var(--error-color-500);
 }
 </style>
