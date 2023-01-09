@@ -1,5 +1,5 @@
 <template>
-    <BaseButton class="btn-primary" :size="size" :min="min">
+    <BaseButton class="btn-primary" :size="size" :min="min" :loading="loading">
         <slot></slot>
     </BaseButton>
 </template>
@@ -18,6 +18,10 @@ export default {
         min: {
             type: String,
             default: ''
+        },
+        loading: {
+          type: Boolean,
+          default: false
         }
     }
 }

@@ -100,8 +100,9 @@ input {
   border-radius: var(--radius-principal);
   width: 100%;
   font-size: 16px;
-  padding: 10px;
-  min-height: 42px;
+  padding: 6px;
+  line-height: 1;
+  min-height: 36px;
   color: #444444;
   font-weight: normal;
 }

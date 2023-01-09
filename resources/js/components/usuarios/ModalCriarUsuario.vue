@@ -72,13 +72,12 @@
             </form>
         </template>
         <template #footer>
-            <button class="btn btn-full btn-primary" @click.prevent="submit">
-                <Loader v-if="loading" height="20px" width="20px"/>
+            <BaseButtonPrimary @click.prevent="submit" :loading="loading">
                 Cadastrar
-            </button>
-            <button class="btn btn-full btn-secondary" @click.prevent="fecharModal">
+            </BaseButtonPrimary>
+            <BaseButtonTertiary @click.prevent="fecharModal">
                 Cancelar
-            </button>
+            </BaseButtonTertiary>
         </template>
     </BaseModal>
 </template>
@@ -91,6 +90,8 @@ import BaseSelectAjax from "../base/form/BaseSelectAjax";
 import axios from "axios";
 import BaseDate from "../base/form/BaseDate";
 import {modalCriarUsuarioStore} from "../../store/usuarios/index";
+import BaseButtonPrimary from "../base/buttons/BaseButtonPrimary";
+import BaseButtonTertiary from "../base/buttons/BaseButtonTertiary";
 
 
 export default {
@@ -110,7 +111,7 @@ export default {
 
         return {form, modalCriarUsuarioState};
     },
-    components: {BaseDate, BaseSelectAjax, BaseModal, BaseInput},
+    components: {BaseButtonTertiary, BaseButtonPrimary, BaseDate, BaseSelectAjax, BaseModal, BaseInput},
     data() {
         return {
             config: false,

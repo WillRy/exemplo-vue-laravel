@@ -69,7 +69,7 @@ export default {
     top: 0;
     height: 100%;
     width: 64px;
-    background: var(--primary-color-500);
+    background: var(--primary-color-600);
     padding: 0px 8px;
     z-index: 99;
     transition: all 0.5s ease;
@@ -114,7 +114,7 @@ export default {
     cursor: pointer;
     transition: all 0.5s ease;
     width: 45px;
-    border-radius: 12px;
+    border-radius: var(--radius-principal);
     height: 45px;
     padding: 4px;
 }
@@ -212,12 +212,12 @@ export default {
     display: flex;
     height: 45px;
     /*width: 45px;*/
-    border-radius: 12px;
+    border-radius: var(--radius-principal);
     align-items: center;
     /*justify-content: center;*/
     text-decoration: none;
     transition: all 0.5s ease;
-    background: var(--primary-color-500);
+    background: var(--primary-color-600);
     gap: 10px;
 }
 
@@ -271,14 +271,14 @@ img.black {
 .sidebar li a:hover .links_name,
 .sidebar li a:hover i {
     transition: all 0.5s ease;
-    color: var(--primary-color-500);
+    color: var(--primary-color-600);
 }
 
 .sidebar li i {
     height: 42px;
     line-height: 42px;
     font-size: 18px;
-    border-radius: 12px;
+    border-radius: var(--radius-principal);
 }
 
 

@@ -113,7 +113,7 @@ li a.router-link-exact-active, li a:hover, .active {
     border-radius: 8px;
     font-size: 14px;
     font-weight: 400;
-    margin: 0 auto;
+    margin: 8px auto;
     max-width: max-content;
     padding: 4px 10px;
     text-align: center;

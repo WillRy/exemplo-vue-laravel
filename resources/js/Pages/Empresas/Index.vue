@@ -1,9 +1,9 @@
 <template>
     <div class="empresas">
         <HeaderPage titulo="Empresas">
-            <ButtonPrimary @click="abrirCriar">
+            <BaseButtonPrimary @click="abrirCriar">
                 Criar
-            </ButtonPrimary>
+            </BaseButtonPrimary>
         </HeaderPage>
         <PageContent>
             <ContentTable>
@@ -18,10 +18,9 @@
                                 />
                             </div>
                             <div class="col-md-auto">
-                                <ButtonPrimary>
-                                    <Loader width="20px" height="20px" v-if="loading"/>
+                                <BaseButtonPrimary :loading="loading">
                                     Pesquisar
-                                </ButtonPrimary>
+                                </BaseButtonPrimary>
                             </div>
                         </div>
                     </form>
@@ -105,10 +104,12 @@ import DropdownAcoes from "../../components/base/dropdown/DropdownAcoes";
 import ModalCriarEmpresa from "../../components/empresas/ModalCriarEmpresa";
 import ModalEditarEmpresa from "../../components/empresas/ModalEditarEmpresa";
 import ModalExcluirEmpresa from "../../components/empresas/ModalExcluirEmpresa";
+import BaseButtonPrimary from "../../components/base/buttons/BaseButtonPrimary";
 
 export default {
     name: "Index",
     components: {
+        BaseButtonPrimary,
         ModalExcluirEmpresa,
         ModalEditarEmpresa,
         ModalCriarEmpresa,

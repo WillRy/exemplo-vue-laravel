@@ -138,7 +138,7 @@ export default {
     display: flex;
     align-items: center;
     font-size: 0;
-    min-height: 42px;
+    min-height: 36px;
     margin-bottom: 0;
     position: relative;
     min-width: 82px;

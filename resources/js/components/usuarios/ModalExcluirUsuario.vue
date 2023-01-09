@@ -11,13 +11,12 @@
             <p>Deseja excluir este usuário?</p>
         </template>
         <template #footer>
-            <button class="btn btn-full btn-primary" @click.prevent="submit">
-                <Loader v-if="loading" height="20px" width="20px"/>
+            <BaseButtonDanger @click.prevent="submit" :loading="loading">
                 Excluir
-            </button>
-            <button class="btn btn-full btn-secondary" @click.prevent="fecharModal">
+            </BaseButtonDanger>
+            <BaseButtonTertiary @click.prevent="fecharModal">
                 Cancelar
-            </button>
+            </BaseButtonTertiary>
         </template>
     </BaseModal>
 </template>
@@ -27,6 +26,9 @@ import {useForm} from "@inertiajs/inertia-vue3";
 import BaseInput from "../base/form/BaseInput";
 import BaseModal from "../base/modal/BaseModal";
 import {modalExcluirUsuarioStore} from "../../store/usuarios/index";
+import BaseButtonPrimary from "../base/buttons/BaseButtonPrimary";
+import BaseButtonTertiary from "../base/buttons/BaseButtonTertiary";
+import BaseButtonDanger from "../base/buttons/BaseButtonDanger";
 
 
 export default {
@@ -38,7 +40,7 @@ export default {
 
         return {form, modalExcluirUsuarioState};
     },
-    components: {BaseModal, BaseInput},
+    components: {BaseButtonDanger, BaseButtonTertiary, BaseButtonPrimary, BaseModal, BaseInput},
     data() {
         return {
             config: false,

@@ -34,13 +34,12 @@
             </form>
         </template>
         <template #footer>
-            <button class="btn btn-full btn-primary" @click.prevent="submit">
-                <Loader v-if="loading" height="20px" width="20px"/>
+            <BaseButtonPrimary @click.prevent="submit" :loading="loading">
                 Editar
-            </button>
-            <button class="btn btn-full btn-secondary" @click.prevent="fecharModal">
+            </BaseButtonPrimary>
+            <BaseButtonTertiary @click.prevent="fecharModal">
                 Cancelar
-            </button>
+            </BaseButtonTertiary>
         </template>
     </BaseModal>
 </template>
@@ -51,6 +50,8 @@ import BaseInput from "../base/form/BaseInput";
 import BaseModal from "../base/modal/BaseModal";
 import Loader from "../base/Loader";
 import axios from "axios";
+import BaseButtonPrimary from "../base/buttons/BaseButtonPrimary";
+import BaseButtonTertiary from "../base/buttons/BaseButtonTertiary";
 
 
 export default {
@@ -62,7 +63,7 @@ export default {
         });
         return {form};
     },
-    components: {Loader, BaseModal, BaseInput},
+    components: {BaseButtonTertiary, BaseButtonPrimary, Loader, BaseModal, BaseInput},
     data() {
         return {
             config: false,

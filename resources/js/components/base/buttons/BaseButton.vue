@@ -8,14 +8,23 @@
             'btn-lg': size === 'lg',
             'btn-full': full
         }"
+        :disabled="loading"
     >
-        <slot></slot>
+        <template v-if="!loading">
+            <slot></slot>
+        </template>
+        <template v-else>
+            <Loader :width="loadingSize" :height="loadingSize" :cor-principal="true"/>
+        </template>
     </button>
 </template>
 
 <script>
+import Loader from "../Loader";
+
 export default {
     name: "BaseButton",
+    components: {Loader},
     props: {
         size: {
             type: String,
@@ -32,9 +41,26 @@ export default {
         full: {
             type: Boolean,
             default: false
+        },
+        loading: {
+            type: Boolean,
+            default: false
         }
     },
-    computed: {}
+    computed: {
+        loadingSize() {
+            switch (this.size) {
+                case 'btn-sm':
+                    return '14px';
+                case 'btn-md':
+                    return '14px';
+                case 'btn-lg':
+                    return '14px';
+                default:
+                    return '14px'
+            }
+        }
+    }
 }
 </script>
 
@@ -51,6 +77,7 @@ export default {
     gap: 10px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    line-height: 1;
 }
 
 .btn-sm {

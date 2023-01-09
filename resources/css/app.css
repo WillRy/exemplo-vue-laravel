@@ -39,16 +39,16 @@ img {
 }
 
 :root {
-    --primary-color-50: #C4D8FF;
-    --primary-color-100: #ABC7FF;
-    --primary-color-200: #8CAFF5;
-    --primary-color-300: #678EDB;
-    --primary-color-400: #4871C2;
-    --primary-color-500: #2D57A8;
-    --primary-color-600: #18408F;
-    --primary-color-700: #082D75;
-    --primary-color-800: #001F5C;
-    --primary-color-900: #001642;
+    --primary-color-50: #f0f0f5;
+    --primary-color-100: #d3d1e1;
+    --primary-color-200: #b5b2cc;
+    --primary-color-300: #9794b8;
+    --primary-color-400: #7a75a4;
+    --primary-color-500: #605b8a;
+    --primary-color-600: #4b476b;
+    --primary-color-700: #36334d;
+    --primary-color-800: #201e2e;
+    --primary-color-900: #0b0a0f;
 
     --second-color-50: #F5E0FF;
     --second-color-100: #EDC7FF;
@@ -119,7 +119,7 @@ img {
     --success-color: #31B383;
     --warning-color: #FFD921;
     --error-color: #C22121;
-    --radius-principal: 8px;
+    --radius-principal: 4px;
 
 
     --z-index-1: 1;
@@ -133,6 +133,7 @@ img {
     --texto-lg: 18px;
     --texto-xl: 24px;
     --texto-xxl: 32x;
+
 }
 
 /*:root {*/

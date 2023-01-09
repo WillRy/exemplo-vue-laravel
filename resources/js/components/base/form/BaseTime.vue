@@ -126,10 +126,11 @@ export default {
     background: #FFFFFF;
     border: 1px solid var(--gray-400);
     border-radius: var(--radius-principal);
-    padding: 10px;
+    padding: 6px;
+    line-height: 1;
     display: block;
     width: 100%;
-    height: 42px;
+    height: 36px;
     color: #444444;
 }
 

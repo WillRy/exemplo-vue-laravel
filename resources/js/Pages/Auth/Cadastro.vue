@@ -30,10 +30,9 @@
                 :class="{error: form.errors.senha}"
             />
 
-            <ButtonPrimary :full="true" :disabled="loading" type="submit">
-                <Loader width="20px" height="20px" v-if="loading"/>
+            <BaseButtonPrimary :full="true"  :loading="loading" type="submit">
                 Cadastrar
-            </ButtonPrimary>
+            </BaseButtonPrimary>
             <LinkPrimary :full="true" href="/login">Logar</LinkPrimary>
         </form>
     </div>
@@ -45,10 +44,11 @@ import BaseInput from "../../components/base/form/BaseInput";
 import ButtonPrimary from "../../components/base/btn/ButtonPrimary";
 import {useForm} from "@inertiajs/inertia-vue3";
 import LinkPrimary from "../../components/base/btn/LinkPrimary";
+import BaseButtonPrimary from "../../components/base/buttons/BaseButtonPrimary";
 
 export default {
     name: "Cadastro",
-    components: {LinkPrimary, ButtonPrimary, BaseInput},
+    components: {BaseButtonPrimary, LinkPrimary, ButtonPrimary, BaseInput},
     layout: Auth,
     setup() {
         const form = useForm({

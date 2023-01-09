@@ -1,9 +1,9 @@
 <template>
     <div class="usuarios">
         <HeaderPage titulo="Usuários">
-            <ButtonPrimary @click="abrirCriar">
+            <BaseButtonPrimary @click="abrirCriar">
                 Criar
-            </ButtonPrimary>
+            </BaseButtonPrimary>
         </HeaderPage>
         <PageContent>
             <ContentTable>
@@ -33,11 +33,35 @@
                                 </BaseSelectAjax>
                             </div>
                             <div class="col-md-auto">
-                                <ButtonPrimary>
-                                    <Loader width="20px" height="20px" v-if="loading"/>
+                                <BaseButtonPrimary :loading="loading">
                                     Pesquisar
-                                </ButtonPrimary>
+                                </BaseButtonPrimary>
                             </div>
+<!--                            <div class="col-md-auto">-->
+<!--                                <BaseButtonAction :loading="loading">-->
+<!--                                    Pesquisar-->
+<!--                                </BaseButtonAction>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-auto">-->
+<!--                                <BaseButtonDanger :loading="loading">-->
+<!--                                    Pesquisar-->
+<!--                                </BaseButtonDanger>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-auto">-->
+<!--                                <base-button-secondary :loading="loading">-->
+<!--                                    Pesquisar-->
+<!--                                </base-button-secondary>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-auto">-->
+<!--                                <BaseButtonSuccess :loading="loading">-->
+<!--                                    Pesquisar-->
+<!--                                </BaseButtonSuccess>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-auto">-->
+<!--                                <BaseButtonWarning :loading="loading">-->
+<!--                                    Pesquisar-->
+<!--                                </BaseButtonWarning>-->
+<!--                            </div>-->
                         </div>
                     </form>
                 </template>
@@ -129,10 +153,22 @@ import BaseSelectAjax from "../../components/base/form/BaseSelectAjax";
 import BaseCheckbox from "../../components/base/form/BaseCheckbox";
 import BaseCheckboxMultiple from "../../components/base/form/BaseCheckboxMultiple";
 import {modalCriarUsuarioStore, modalEditarUsuarioStore, modalExcluirUsuarioStore} from '../../store/usuarios/index'
+import BaseButtonPrimary from "../../components/base/buttons/BaseButtonPrimary";
+import BaseButtonAction from "../../components/base/buttons/BaseButtonAction";
+import BaseButtonDanger from "../../components/base/buttons/BaseButtonDanger";
+import BaseButtonSecondary from "../../components/base/buttons/BaseButtonSecondary";
+import BaseButtonSuccess from "../../components/base/buttons/BaseButtonSuccess";
+import BaseButtonWarning from "../../components/base/buttons/BaseButtonWarning";
 
 export default {
     name: "Index",
     components: {
+        BaseButtonWarning,
+        BaseButtonSuccess,
+        BaseButtonSecondary,
+        BaseButtonDanger,
+        BaseButtonAction,
+        BaseButtonPrimary,
         BaseCheckboxMultiple,
         BaseCheckbox,
         BaseSelectAjax,

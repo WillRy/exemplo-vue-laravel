@@ -26,6 +26,6 @@ export default {
 .content-table {
     padding: 20px 0;
     background: #fff;
-    border-radius: 12px;
+    border-radius: var(--radius-principal);
 }
 </style>
