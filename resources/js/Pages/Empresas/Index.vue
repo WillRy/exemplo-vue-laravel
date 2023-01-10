@@ -172,7 +172,11 @@ export default {
                 if (!r.data.success) return;
 
                 this.empresas = r.data.data;
-            }).finally(() => {
+            })
+            .catch((e) => {
+                this.$laravelError(e, 'Não foi possível listar os dados');
+            })
+            .finally(() => {
                 this.loading = false;
             })
         }

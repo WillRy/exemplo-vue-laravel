@@ -121,7 +121,7 @@ Caption
 Overline
 */
 .overline-text {
-    text-decoration: overline;
+    vertical-align: super;
     font-size: 0.75rem;
     line-height: 0.9975rem;
     font-weight: bold;

@@ -12,7 +12,7 @@ import outside from './directives/click-outside';
 
 import Loader from "./components/base/Loader";
 
-import {filters, EventBus} from './plugins';
+import {filters, EventBus, LaravelError} from './plugins';
 
 
 import { createPinia } from 'pinia'
@@ -26,6 +26,7 @@ createInertiaApp({
             .use(plugin)
             .use(VueToast)
             .use(FloatingVue)
+            .use(LaravelError)
             .use(outside)
             .use(filters)
             .use(EventBus)

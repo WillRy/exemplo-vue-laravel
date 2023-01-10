@@ -11,17 +11,17 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function errorAPI($message, $errors = [], $errorCode = null)
+    public function errorAPI($message, $errors = [], $errorCode = null, $statusCode = 500)
     {
         return response()->json([
             'success' => false,
             'message' => $message,
             'errors' => $errors,
             'error_code' => $errorCode
-        ], 200);
+        ], $statusCode);
     }
 
-    public function successAPI($data, $message = null)
+    public function successAPI($data, $message = null, $statusCode = 200)
     {
         return response()->json([
             'success' => true,
@@ -29,7 +29,7 @@ class Controller extends BaseController
             'errors' => null,
             'error_code' => null,
             "data" => $data,
-        ], 200);
+        ], $statusCode);
     }
 
     public function errorInertia($message, $dados = [], $routeName = null, $routeParams = [])
