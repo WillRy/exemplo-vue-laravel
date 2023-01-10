@@ -9,8 +9,8 @@
         </template>
         <template #body>
             <form @submit.prevent="submit">
-                <div class="flex flex-wrap gap-xxs">
-                    <div class="w-full">
+                <div class="row gap-xss">
+                    <div class="col-12">
                         <BaseSelectAjax
                             label="Empresa *"
                             placeholder="Pesquise as empresas"
@@ -29,7 +29,7 @@
                         </BaseSelectAjax>
                     </div>
 
-                    <div class="w-full">
+                    <div class="col-12">
                         <BaseInput
                             v-model="form.nome"
                             :class="{error: form.errors.nome}"
@@ -38,7 +38,7 @@
                             placeholder="Nome"
                         />
                     </div>
-                    <div class="w-full">
+                    <div class="col-12">
                         <BaseInput
                             v-model="form.email"
                             :class="{ error: form.errors.email }"
@@ -48,7 +48,7 @@
                             type="email"
                         />
                     </div>
-                    <div class="w-full">
+                    <div class="col-12">
                         <BaseInput
                             v-model="form.senha"
                             :class="{ error: form.errors.senha }"
@@ -58,7 +58,7 @@
                             type="password"
                         />
                     </div>
-                    <div class="w-full">
+                    <div class="col-12">
                         <BaseDate
                             v-model="form.admissao"
                             :class="{ error: form.errors.admissao }"

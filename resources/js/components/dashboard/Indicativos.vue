@@ -4,9 +4,9 @@
         <PageContent>
             <div class="indicativos">
                 <Loader width="120px" height="120px" :cor-principal="true" v-if="loadingDados"></Loader>
-                <div class="flex flex-wrap gap-s" v-else>
+                <div class="row gap-sm" v-else>
                     <div
-                        class="md:w-2/12 w-full"
+                        class="col-md-2"
                     >
                         <div class="indicativo">
                             <img src="/img/empresa-b.svg" alt="Empresas">
@@ -14,7 +14,7 @@
                         </div>
                     </div>
                     <div
-                        class="md:w-2/12 w-full"
+                        class="col-md-2"
                     >
                         <div class="indicativo">
                             <img src="/img/usuarios-b.svg" alt="Usuarios">

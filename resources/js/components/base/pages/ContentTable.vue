@@ -1,6 +1,6 @@
 <template>
     <div class="content-table">
-        <div class="p-s">
+        <div class="p-sm">
             <slot name="header">
 
             </slot>

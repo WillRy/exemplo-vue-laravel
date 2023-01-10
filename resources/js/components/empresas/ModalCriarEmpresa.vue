@@ -9,8 +9,8 @@
         </template>
         <template #body>
             <form @submit.prevent="submit">
-                <div class="flex flex-wrap gap-xxs">
-                    <div class="w-full">
+                <div class="row gap-xxs">
+                    <div class="col-12">
                         <BaseInput
                             v-model="form.nome"
                             :class="{error: form.errors.nome}"
@@ -19,7 +19,7 @@
                             placeholder="Nome"
                         />
                     </div>
-                    <div class="w-full">
+                    <div class="col-12">
                         <BaseInput
                             v-model="form.email"
                             :class="{ error: form.errors.email }"
@@ -36,7 +36,7 @@
             <BaseButtonPrimary @click.prevent="submit" :loading="loading">
                 Cadastrar
             </BaseButtonPrimary>
-            <BaseButtonTertiary  @click.prevent="fecharModal">
+            <BaseButtonTertiary @click.prevent="fecharModal">
                 Cancelar
             </BaseButtonTertiary>
         </template>

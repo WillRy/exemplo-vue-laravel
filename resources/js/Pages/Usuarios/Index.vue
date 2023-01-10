@@ -9,15 +9,15 @@
             <ContentTable>
                 <template #header>
                     <form @submit.prevent="pesquisar">
-                        <div class="flex flex-wrap items-center gap-s">
-                            <div class="md:w-4/12 w-full">
+                        <div class="row align-items-center gap-sm">
+                            <div class="col-md-4">
                                 <BaseInput
                                     label="Pesquisa"
                                     name="pesquisa"
                                     v-model="form.pesquisa"
                                 />
                             </div>
-                            <div class="md:w-4/12 w-full">
+                            <div class="col-md-4">
                                 <BaseSelectAjax
                                     label="Empresa"
                                     placeholder="Pesquise as empresas"
@@ -32,7 +32,7 @@
                                 >
                                 </BaseSelectAjax>
                             </div>
-                            <div class="md:w-auto w-full">
+                            <div class="col-auto">
                                 <BaseButtonPrimary :loading="loading">
                                     Pesquisar
                                 </BaseButtonPrimary>

@@ -6,14 +6,17 @@
 @import "~v-calendar/dist/style.css";
 
 @import "./normalize.css";
+@import "./spacing.css";
+@import "./grid.css";
+@import "./colors.css";
+
 @import "./tabelas.css";
-/*@import "./grid.css";*/
 @import "./select.css";
 @import "./checkbox.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*@tailwind base;*/
+/*@tailwind components;*/
+/*@tailwind utilities;*/
 
 * {
     margin: 0;
@@ -211,29 +214,6 @@ img {
 
 .btn:hover {
     opacity: 0.6;
-}
-
-.btn-full {
-    width: 100%;
-}
-
-.btn-min {
-    min-width: 156px;
-}
-
-.btn-primary {
-    background-color: var(--primary-color-500);
-    color: #fff;
-}
-
-.btn-secondary {
-    background-color: var(--gray-100);
-    color: var(--primary-color-500);
-}
-
-.btn-danger {
-    background-color: var(--error-color-500);
-    color: #fff;
 }
 
 .btn-nobg-primary {
